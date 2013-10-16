@@ -56,7 +56,6 @@ function skematik_footer_area() {?>
 			</div>
 		</div>
 	</footer><!-- .site-footer .site-footer -->
-
 <?php }
 
 

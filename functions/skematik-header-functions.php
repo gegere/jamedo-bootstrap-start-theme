@@ -146,19 +146,25 @@ function skematik_main_navbar() {
        <div class="navbar-header">
 		<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		  <span class="sr-only"><?php echo __( 'Toggle navigation', 'jamedo-bootstrap-start-theme' ); ?></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-			<? if(get_theme_mod('logo_image_position', 'in-nav') == 'in-nav') {skematik_logo();} ?>
+			<?php if(get_theme_mod('logo_image_position', 'in-nav') == 'in-nav') {echo skematik_logo();} ?>
        </div>
          
-        <!-- main navigation -->
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-		<?php skematik_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-		</div>
-
-
+		  
+         <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+		  <?php skematik_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+		  <?php if(get_theme_mod( 'navbar_search', 1 ) == 1) {skematik_nav_search();} ?> 
+		  <!--ul class="nav navbar-nav navbar-right"-->
+		  <?php if(get_theme_mod( 'navbar_cart', 1 ) == 1) {skematik_cart_dropdown();} ?>
+		  <?php if(get_theme_mod( 'navbar_account', 1 ) == 1) {skematik_account_dropdown();} ?>
+          <!--/ul-->
+          </div>
+        
        <?php if(get_theme_mod( 'navbar_style' ) != '') {?></div><?php } ?>
     </nav>
     <?php if(get_theme_mod( 'navbar_style' ) == '') {?></div><?php } ?>
