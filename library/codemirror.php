@@ -8,6 +8,8 @@
  *
  */
 
+
+
 add_action('admin_init', 'codemirror_register', 999);
 
 function codemirror_register() {

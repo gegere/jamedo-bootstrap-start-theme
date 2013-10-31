@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file.
  *
@@ -14,6 +15,7 @@
 get_header();
 do_action( 'jbst_before_content_page' );
 ?>
+
 
 		<?php if ( have_posts() ) : ?>
 				<?php 
