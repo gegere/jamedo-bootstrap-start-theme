@@ -193,10 +193,12 @@ function skematik_bootstrap_js() {
 	wp_enqueue_script( 'bootstrap' );
 }
 
-function skematik_application_js() {
-	wp_register_script( 'application', get_template_directory_uri() . '/library/assets/js/application.js', array( 'jquery' ), '20120703', true );
-	wp_enqueue_script( 'application' );
+function skematik_custom_js() {	
+	wp_register_script('custom_js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery','bootstrap' ), '20132210', true );
+	wp_enqueue_script( 'custom_js' );
 }
+
+
 
 function skematik_js() {	
 	wp_register_script('skematik_js', get_template_directory_uri() . '/library/assets/js/skematik.js', array( 'jquery' ), '20120703', true );
@@ -317,7 +319,7 @@ function skematik_account_dropdown() {
 	<?php
 	} else {
 	?>
-			<li><div class="btn-group navbar-right" id="nav-profile-dropdown">
+			<div class="btn-group navbar-right" id="nav-profile-dropdown">
 				  <button type="button" class="btn <?php skematik_nav_account_button_class();?> navbar-btn dropdown-toggle" data-toggle="dropdown">
 					<i class="glyphicon glyphicon-user"></i> 
 					<span class="caret"></span>
@@ -325,7 +327,7 @@ function skematik_account_dropdown() {
 				  <ul class="dropdown-menu">
 						<?php do_action( 'skematik_nav_login_dropdown');?>
 				  </ul>
-			</div></li>
+			</div>
 	
 
 	<?php
@@ -763,21 +765,7 @@ function bones_comments($comment, $args, $depth) {
 	<?php
 	}
 
-/*
-==========================================================
-ARTICLE CONTENT CLASSES
-==========================================================
-*/
-add_action('skematik_after','skematik_bootstrap_add_classes');
-function skematik_bootstrap_add_classes() {?>
-<script>
-jQuery(document).ready(function($) {
-  /* Add to cart buttons */
-  $("article table").addClass("table");
-});
-</script>
-<?php
-}
+
 
 /*
 ==========================================================
@@ -793,7 +781,7 @@ function skematik_admin_styles() {
            body.appearance_page_options-framework #optionsframework {max-width:100%;}
            #optionsframework.postbox {border:0px;padding:0;}
            #optionsframework-submit {background:0;border-top:1px solid #ccc;padding:15px 0px;}
-           #optionsframework-submit input[type="submit"].button-primary,#optionsframework-submit input[type="submit"].button-secondary {font-size: 14px!important;padding: 8px 15px;-webkit-border-radius: 3px;border-radius: 3px; float:left; margin-right:5px;}
+           #optionsframework-submit input[type="submit"].button-primary,#optionsframework-submit input[type="submit"].button-secondary {font-size: 14px!important;-webkit-border-radius: 3px;border-radius: 3px; float:left; margin-right:5px;}
            #optionsframework .section .controls {min-width: 200px;width: auto;}
            #optionsframework .section .explain {max-width: 100%;}
            #optionsframework .section.section-info {background: #f6f6f6;padding:20px 20px 10px;}

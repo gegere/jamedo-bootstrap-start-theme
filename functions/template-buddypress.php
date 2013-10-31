@@ -2,9 +2,7 @@
 /* Add custom BuddyPress styling
 ----------------------------------------------- */
 function skematik_buddypress_css() {    
-	wp_register_style( 'skematik-bp-css', get_template_directory_uri() . '/assets/css/bp.css', array(), '20121008', 'all' );
-    wp_enqueue_style( 'skematik-bp-css' );
-	wp_register_style( 'skematik-buddypress-css', get_template_directory_uri() . '/assets/css/buddypress.css', array(), '20121008', 'all' );
+	wp_register_style( 'skematik-buddypress-css', get_stylesheet_directory_uri() . '/assets/css/buddypress.css', array(), '20121008', 'all' );
     wp_enqueue_style( 'skematik-buddypress-css' );
 }
 add_action( 'wp_enqueue_scripts', 'skematik_buddypress_css', 99 );
@@ -21,20 +19,12 @@ add_action( 'skematik_add_to_custom_style', 'skematik_buddypress_custom_style', 
 
 /* Use jQuery to add bootstrap classes to stuff
 ----------------------------------------------- */
-function skematik_buddypress_add_classes() {?>
-<script>
-jQuery(document).ready(function($) {
-  /* Add to cart buttons */
-  $("form#settings-form table, table.profile-fields").addClass("table table-striped");  
-  $("input[type='submit']").addClass("btn btn-success");  
-  $("#item-header-avatar img,.activity-avatar img").addClass("thumbnail");
-  $(".bp-primary-action,.bp-secondary-action").addClass("btn btn-mini");
-  $(".item-button.delete-activity").addClass("btn-danger"); 
-});
-</script>
-<?php
+function skematik_buddypress_add_classes() {
+	wp_register_script( 'buddypress_js', get_template_directory_uri() . '/library/assets/js/buddypress.js', array( 'jquery' ), '20120921', true );
+	wp_enqueue_script( 'buddypress_js' );
 }
-add_action('wp_head','skematik_buddypress_add_classes', 30);
+
+add_action('wp_enqueue_scripts','skematik_buddypress_add_classes', 30);
 
 /* Account Profile Button
 ----------------------------------------------- */
