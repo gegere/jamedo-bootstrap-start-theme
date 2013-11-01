@@ -171,7 +171,7 @@ function skematik_main_navbar() {
 	}  
 	
 echo '<div class="container"><div class="pull-right">
-		<h3 style="margin-top:0px;"><a href="tel:8008797602" style="text-decoration:none; color:#333;">(800) 879-7602</a></h3>
+		<h3 style="margin-top:0px;"><a href="tel:8008797602" style="text-decoration:none; color:#FFF;">(800) 879-7602</a></h3>
  		</div></div>';	
 	
 } // END skematik_main_navbar
