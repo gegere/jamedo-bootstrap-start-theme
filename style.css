@@ -62,6 +62,15 @@ ol.commentlist li li {margin-left:20px;}
 #commentform .btn {text-align:right; margin-top:10px;float:right;}
 #cancel-comment-reply-link {margin-right:5px;}
 
+.page-id-56 .well {
+    background: none;
+    background-repeat: repeat-x;
+    border: none;
+    box-shadow: none;
+    line-height: 22px;
+}
+.page-id-56 .well p{ padding:5px 0;}
+
 /* make the admin bar (more) responsive */
 @media (max-width: 767px) 
 {
