@@ -1,0 +1,1 @@
+<p class="text-center"><a href="/c/quote"><img src="http://placehold.it/250x80&text=REQUEST%20A%20QUOTE"></a></p>

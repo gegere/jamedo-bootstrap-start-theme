@@ -81,7 +81,12 @@ function skematik_right_sidebar() {
 	if(($skematik_layout == 'right-sidebar') || ($skematik_layout == 'three-column')) {
 			echo '<div id="right-sidebar" class="widget-area ' .JBST_GRIDPREFIX. '3 sidebar" role="complementary">';
 			do_action( 'skematik_before_right_sidebar' );
-			
+
+			$sidebar = get_post_meta($post->ID, "sidebar", true);
+			if ( $sidebar ) {
+			    get_sidebar($sidebar);
+			} 
+
 			if ( ! dynamic_sidebar( 'right-content-sidebar' ) ) :
 				skematik_sidebar_default_content();
 			endif;
@@ -91,24 +96,6 @@ function skematik_right_sidebar() {
 }
 
 //Default Sidebar Content
-function skematik_sidebar_default_content() {?>
-				<aside id="search" class="widget widget_search">
-					<?php get_search_form(); ?>
-				</aside>
-
-				<aside id="archives" class="widget">
-					<h3 class="widget-title"><?php _e( 'Archives', 'jamedo-bootstrap-start-theme' ); ?></h3>
-					<ul>
-						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-					</ul>
-				</aside>
-
-				<aside id="meta" class="widget">
-					<h3 class="widget-title"><?php _e( 'Meta', 'jamedo-bootstrap-start-theme' ); ?></h3>
-					<ul>
-						<?php wp_register(); ?>
-						<li><?php wp_loginout(); ?></li>
-						<?php wp_meta(); ?>
-					</ul>
-				</aside>
-<?php } //End of default sidebar content function
+function skematik_sidebar_default_content() {
+				//Nothing to see here
+} //End of default sidebar content function
