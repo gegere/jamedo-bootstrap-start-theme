@@ -114,23 +114,11 @@ $skematikecommerce = true;
 	}
 	add_action( 'skematik_nav_profile_dropdown', 'skematik_woo_account_profile_link', 10);
 	
-	/* Use jQuery to add bootstrap classes to stuff
-	----------------------------------------------- */
-	function skematik_woo_add_classes() {?>
-	<script>
-	jQuery(document).ready(function($) {
-	  /* Add to cart buttons */
-	  $("#order_review table").addClass("table table-striped").removeClass("shop_table");
-	});
-	</script>
-	<?php
-	}
-	add_action('wp_footer','skematik_woo_add_classes', 30);
 	
 	/* Add custom WOO styling
 	----------------------------------------------- */
 	function skematik_woo_css() {    
-		wp_register_style( 'skematik-woo-css', get_template_directory_uri() . '/assets/css/woo.css', array(), '20121008', 'all' );
+		wp_register_style( 'skematik-woo-css', get_stylesheet_directory_uri() . '/assets/css/woo.css', array(), '20121008', 'all' );
 	    wp_enqueue_style( 'skematik-woo-css' );
 	}
 	add_action( 'wp_enqueue_scripts', 'skematik_woo_css', 99 );
@@ -211,7 +199,7 @@ $skematikecommerce = true;
 	/* Add custom JigoShop styling
 	----------------------------------------------- */
 	function skematik_jigo_css() {    
-		wp_register_style( 'skematik-jigo-css', get_template_directory_uri() . '/assets/css/jigo.css', array(), '20121008', 'all' );
+		wp_register_style( 'skematik-jigo-css', get_stylesheet_directory_uri() . '/assets/css/jigo.css', array(), '20121008', 'all' );
 	    wp_enqueue_style( 'skematik-jigo-css' );
 	}
 	add_action( 'wp_enqueue_scripts', 'skematik_jigo_css', 99 );
@@ -438,7 +426,7 @@ elseif ( in_array( 'wp-e-commerce/wp-shopping-cart.php', apply_filters( 'active_
 	/* Add custom WPEC styling
 	----------------------------------------------- */
 	function skematik_wpec_css() {    
-		wp_register_style( 'skematik-wpec-css', get_template_directory_uri() . '/assets/css/wpec.css', array(), '20121004', 'all' );
+		wp_register_style( 'skematik-wpec-css', get_stylesheet_directory_uri() . '/assets/css/wpec.css', array(), '20121004', 'all' );
 	    wp_enqueue_style( 'skematik-wpec-css' );
 	}
 	add_action( 'wp_enqueue_scripts', 'skematik_wpec_css', 99 );

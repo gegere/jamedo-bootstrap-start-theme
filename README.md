@@ -8,6 +8,9 @@ It also has built in support for theme options, metaboxes, BuddyPress and eComme
 * [Twitter's Bootstrap 3](http://getboostrap.com/) ready
 * E-Commerce ( we recommend WooCommerce )
 * Buddy Press
+* BBPress
+
+Demo of default install: http://demo.jbst.eu/ (some quick install notes: https://github.com/bassjobsen/jamedo-bootstrap-start-theme/issues/34)
 
 Installation
 ------------
@@ -67,6 +70,13 @@ Recommended Plugins
 * [Wordpress SEO Plugin](http://yoast.com/wordpress/seo/)
 * [WooCommerce](http://www.woothemes.com/woocommerce/), with [WooCommerce Twitter's Bootstrap Plugin](https://github.com/bassjobsen/woocommerce-twitterbootstrap)
 * [Stimulate correct headings PLugin](https://github.com/bassjobsen/stimulate-correct-headings) for accessibility and seo
+* [WP Defer Loading](https://github.com/bassjobsen/wp-defer-loading), Defer loading javascript for WordPress, see: https://developers.google.com/speed/docs/insights/BlockingJS
+
+JBST Expo
+---------
+[JBST Expo](http://expo.jbst.eu/) is a project to showcase the absolute best projects built on JBST.
+
+The JBST Expo is all hosted on GitHub, meaning recommending new sites is as easy as opening a [new issue](https://github.comb/bassjobsen/jbst-expo/issues/new). It also keeps the primary JBST repo focused on code and documentation, and not dozens of extraneous images.
 
 Support
 -------
