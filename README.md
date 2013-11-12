@@ -18,7 +18,7 @@ Installation
 [Download the latest version as .zip file](https://github.com/bassjobsen/jamedo-bootstrap-start-theme/archive/master.zip). Upload the .zip file to your Wordpress theme directory (wp-content/themes) or use Install theme function in your dashboard.
 Activate the theme in your dashboard ( Appearence > themes ).
 
-Migration
+Migration Skematik to JBST
 ---------
 
 1. download from: https://github.com/bassjobsen/jamedo-bootstrap-start-theme/archive/master.zip
@@ -63,14 +63,26 @@ Use JBST to create child themes for wordpress build on Twitter's Bootstrap 3.
 We provide you a [Boilerplate JBST Child Theme](https://github.com/bassjobsen/Boilerplate-JBST-Child-Theme) and an example of a Webshop based on [Twitter Bootstrap Webshop Template with vertical menu](https://github.com/bassjobsen/twitter-bootstrap-webshop-template). 
 Download this [Demo Webshop E-commerce Template](https://github.com/bassjobsen/jbst-e-commerce-child-theme) or try the [Demo](http://webshop.w3masters.nl/).
 
+Twitter's Boostrap Shortcodes
+-----------------------------
+JBST doesn't integrate Twitter's Boostrap Shortcodes since version 1.1. In stead of integration we offer support for plugins which provide this functionality. We support these plugins:
+
+* [Twitter's Bootstrap Shortcodes Ultimate Add-on](http://wordpress.org/plugins/twitters-bootstrap-shortcodes-ultimate/), recommended!
+* [Easy Bootstrap Shortcode](http://wordpress.org/plugins/easy-bootstrap-shortcodes/)
+* [Bootstrap WP Plugin](http://bootstrapwpplugin.com?affiliates=c9f0f895fb98ab9159f51fd0297e236d)
+
+Download the plugin and activate it. Troubles? Post an issue.
+
 
 Recommended Plugins
 -------------------
 
 * [Wordpress SEO Plugin](http://yoast.com/wordpress/seo/)
 * [WooCommerce](http://www.woothemes.com/woocommerce/), with [WooCommerce Twitter's Bootstrap Plugin](https://github.com/bassjobsen/woocommerce-twitterbootstrap)
-* [Stimulate correct headings PLugin](https://github.com/bassjobsen/stimulate-correct-headings) for accessibility and seo
+* [Stimulate correct headings Plugin](https://github.com/bassjobsen/stimulate-correct-headings) for accessibility and seo
 * [WP Defer Loading](https://github.com/bassjobsen/wp-defer-loading), Defer loading javascript for WordPress, see: https://developers.google.com/speed/docs/insights/BlockingJS
+* [Twitter Bootstrap Galleries Plugin](https://github.com/bassjobsen/twitter-bootstrap-galleries), Wraps the content of a WordPress media gallery in a Twitter's Bootstrap grid. And make it full responsive.
+* [Twitter Bootstrap Slider](https://github.com/bassjobsen/twitter-bootstrap-slider/) responsive image slide show (slider component)
 
 JBST Expo
 ---------
