@@ -101,7 +101,6 @@ if(get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width') {
         //else echo 'footer.site-footer > .container {background-color: #ddd;}';
 } else {echo 'html {background:#ddd;}';}
 
-
 echo 'footer.site-footer '.((get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width')?' .container':'').' {';
 if($ftr_bg_color){echo 'background:' .$ftr_bg_color.';';}
 if($ftr_text_color){echo 'color:' .$ftr_text_color.';';}
@@ -123,7 +122,7 @@ if(get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width') {
 }
 
 if(get_theme_mod( 'footer_widgets_number', 4) == 0) {
-	echo 'footer.site-footer .site-info {border-top:0px;padding-top: 0px;margin-bottom:10px;}';
+	echo 'footer.site-footer .site-info {border-top:0px;padding-top:0; margin-bottom:10px;}';
 }
 echo 'footer.site-footer .col-sm-4 {text-align: center}';
 
@@ -165,8 +164,9 @@ if($container == 768) {
 	';
 }
 
+do_action('skematik_add_to_custom_style');
+
 echo '
-body {padding-top: 15px;}
 .spacer {margin-top: 30px;}
 #checkbox label{font-weight: normal; cursor: pointer;}
 #checkbox label:hover{background: #FFFBCC;}
@@ -175,9 +175,12 @@ body {padding-top: 15px;}
 		footer.site-footer { background: none; }
 		footer.site-footer .col-sm-4 { padding:10px 0; }
 }
+@media (max-width: 767px) {
+		body { padding-top: 0; }
+}
 ';
 
-do_action('skematik_add_to_custom_style');
+
 
 /* Add custom css styles */
 echo of_get_option('newcontent');

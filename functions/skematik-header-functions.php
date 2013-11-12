@@ -116,9 +116,9 @@ Logo out side navar
 function jbst_logooustside()
 {
 	$extraclasses = apply_filters('jbst_logooustside_classes',array());
-	$string  = '<div class="logo-outside-nav container'.(($extraclasses)?' '.implode('',$extraclasses):'').'">';
+	$string  = '<div class="row"><div class="col-sm-12"><div class="logo-outside-nav container'.(($extraclasses)?' '.implode('',$extraclasses):'').'">';
 	$string .=  skematik_logo();
-	$string .=  '</div>';	
+	$string .=  '</div></div></div>';	
 	return $string;
 }
 
@@ -147,19 +147,25 @@ function skematik_main_navbar() {
        <div class="navbar-header">
 		<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		  <span class="sr-only"><?php echo __( 'Toggle navigation', 'jamedo-bootstrap-start-theme' ); ?></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-			<? if(get_theme_mod('logo_image_position', 'in-nav') == 'in-nav') {skematik_logo();} ?>
+			<?php if(get_theme_mod('logo_image_position', 'in-nav') == 'in-nav') {echo skematik_logo();} ?>
        </div>
          
-        <!-- main navigation -->
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-		<?php skematik_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-		</div>
-
-
+		  
+         <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+		  <?php skematik_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+		  <?php if(get_theme_mod( 'navbar_search', 1 ) == 1) {skematik_nav_search();} ?> 
+		  <!--ul class="nav navbar-nav navbar-right"-->
+		  <?php if(get_theme_mod( 'navbar_cart', 1 ) == 1) {skematik_cart_dropdown();} ?>
+		  <?php if(get_theme_mod( 'navbar_account', 1 ) == 1) {skematik_account_dropdown();} ?>
+          <!--/ul-->
+          </div>
+        
        <?php if(get_theme_mod( 'navbar_style' ) != '') {?></div><?php } ?>
     </nav>
     <?php if(get_theme_mod( 'navbar_style' ) == '') {?></div><?php } ?>
@@ -235,7 +241,8 @@ function skematik_nav_styles() {
 	if(get_theme_mod( 'navbar_style' ) == '') { //default
 	echo '
 	body { padding-top: 30px; }
-    .navbar { margin-bottom: 30px; }
+        .navbar { margin-bottom: 30px; margin-left: -15px;
+    margin-right: -15px;}
 	';
 	}
 	if(get_theme_mod( 'navbar_style') == 'navbar-static-top') {
@@ -331,7 +338,6 @@ function skematik_top_content_wrapper() {
 	echo '
 	<div id="contentwrap">
 		<div id="page" class="hfeed site container">
-			<div id="main">
 				<div class="row">';
 }
 

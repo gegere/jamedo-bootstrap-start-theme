@@ -14,10 +14,7 @@ Sets up theme defaults and registers support for various WordPress features. Not
 */
 function skematik_core_setup() {
 	
-	/* Load custom Skematik shortcodes. */
-	require( get_template_directory() . '/library/shortcodes/lib/template-shortcodes.php' );
-	require_once locate_template('/library/shortcodes/shortcodes-init.php');
-
+																	
 /*
 ==========================================================
 Internationalizing And Localizing 
@@ -48,7 +45,7 @@ SET THE DEFAULT GRID
 */
 
 define('JBST_GRIDPREFIX','col-'.get_theme_mod( 'default_grid', 'md').'-');
-
+																							
 /*
 ==========================================================
 ADD WELCOME SCREEN TO THE THEME OPTIONS PANEL
@@ -87,7 +84,7 @@ function skematik_options_add_before() {
 		$welcometext .= __('Jamedo\'s Bootstrap Start Theme','jamedo-bootstrap-start-theme');
 		$welcometext .= ' ';  
 		
-		$welcometext .=__('comes bundled with an extensive library of shortcodes for adding unique content elements like columns, buttons, tabs and carousels. Best of all, you don\'t have to remember any of them as we have included a special shortcode generator just above the editor.','jamedo-bootstrap-start-theme');
+		$welcometext .=__('Install <a href="http://gndev.info/shortcodes-ultimate/">Shortcodes Ultimate</a> and <a href="http://wordpress.org/plugins/twitters-bootstrap-shortcodes-ultimate/">Twitter\'s Bootstrap Shortcodes Ultimate Add-on</a> This plugin provide an extensive library of shortcodes for adding unique content elements like columns, buttons, tabs and carousels. Best of all, you don\'t have to remember any of them as we have included a special shortcode generator just above the editor.','jamedo-bootstrap-start-theme');
 		
 		 $welcometext .= sprintf(' <strong>%1$s... %2$s\'s %3$s</strong>.</p></div>',__('Plus','jamedo-bootstrap-start-theme'),__('Jamedo\'s Bootstrap Start Theme','jamedo-bootstrap-start-theme'),__('shortcodes work in widgets too!','jamedo-bootstrap-start-theme'));
 				
@@ -163,9 +160,10 @@ function skematik_bootstrap_responsive_css() {
 		wp_enqueue_style( 'navbar-gridfloatbreakpoint' );
 	//}	
 	
-	$menu_depth = get_theme_mod( 'menu_depth', 0);
-	if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
-	wp_enqueue_style( 'dropdown-submenu' );	
+	//HTMLgraphic - Disabled for better experience
+	//$menu_depth = get_theme_mod( 'menu_depth', 0);
+	//if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
+	//wp_enqueue_style( 'dropdown-submenu' );	
 }
 
 
@@ -236,7 +234,7 @@ global $post;
 }
 
 function skematik_lightbox_js() {
-	wp_register_script( 'skematik_lightbox_js', get_template_directory_uri() . '/library/lightbox/js/lightbox.js', array( 'jquery' ), '20121005', true );
+	wp_register_script( 'skematik_lightbox_js', get_template_directory_uri() . '/library/lightbox/js/lightbox-2.6.min.js', array( 'jquery','skematik_js' ), '20131101', true );
 	wp_enqueue_script( 'skematik_lightbox_js' );
 }
 
@@ -272,7 +270,7 @@ CUSTOM TYPOGRAPHY
 */
 add_action( 'skematik_add_to_custom_style', 'skematik_typography', 5);
 function skematik_typography() {
-	echo 'a.brand {font-family:"'.str_replace("+", " ", get_theme_mod('logo_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
+	echo 'a.navbar-brand {font-family:"'.str_replace("+", " ", get_theme_mod('logo_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
 	echo 'body {font-family:"'.str_replace("+", " ", get_theme_mod('body_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
 	echo 'h1,h2,h3 {font-family:"'.str_replace("+", " ", get_theme_mod('heading_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
 	echo '.navbar-inner {font-family:"'.str_replace("+", " ", get_theme_mod('navbar_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
@@ -467,9 +465,14 @@ function skematik_main_nav($menu_class='') {
         'container'         => 'false',
         'container_class'   => 'collapse navbar-collapse navbar-jbst-collapse',
         'menu_class'        => 'nav navbar-nav',
+        'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s</ul><ul class="nav navbar-nav navbar-right">
+                                  <li><a href="/c/payment"><span class="glyphicon glyphicon-usd"></span>&nbsp; Pay Online</a></li><li><a href="/c/contact"><span class="glyphicon glyphicon-earphone"></span>&nbsp; Contact Us</a></li></ul>',
+            
         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
         'walker'            => new wp_bootstrap_navwalker())
     );
+
+
 
 
 do_action( 'skematik_after_main_nav' );
@@ -754,15 +757,7 @@ function bones_comments($comment, $args, $depth) {
 } // don't remove this bracket!
 
 	function skematik_comment_button_classes() {?>
-	<script>
-	jQuery(document).ready(function($) {
-	  /* Add to cart buttons */
-	  $(".comment-reply-link").addClass("btn btn-success btn-mini");
-	  $('.comment-reply-link').prepend('<i class="glyphicon glyphicon-share-alt"></i> ');
-	  $("#cancel-comment-reply-link").addClass("btn btn-danger btn-mini");
-	  $('#cancel-comment-reply-link').prepend('<i class="glyphicon glyphicon-remove"></i> ');
-	});
-	</script>
+
 	<?php
 	}
 
@@ -1194,8 +1189,8 @@ function skematik_image($width,$height) {
 			        else {$image = skematik_resize( $attachment->ID, '', $w, $h, true );}
 					$large_image_url = wp_get_attachment_image_src($attachment->ID, 'large');
 				 }?>
-				 	<a href="<?php echo $large_image_url[0];?>" rel="lightbox" title="<?php the_title();?>" class="thumbnail" rel="<?php the_title(); ?>">
-						<img src="<?php echo $image['url']; ?>" width="<?php echo $w; ?>" />
+				 	<a href="<?php echo $large_image_url[0];?>" data-lightbox="lightbox" title="<?php the_title();?>" class="thumbnail" rel="<?php the_title(); ?>">
+						<img src="<?php echo $image['url']; ?>" class="img-responsive" />
 					</a>
 		
 			<?php } /*else {?>

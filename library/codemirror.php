@@ -34,8 +34,7 @@ function codemirror_enqueue_scripts($hook) {
 	// Load the codemirror scripts on theme-editor.php only, plugin interference is bad.
 	// http://pippinsplugins.com/loading-scripts-correctly-in-the-wordpress-admin/
 
-	if( $hook != 'theme-editor.php' ) 
-		return;
+	if( $hook != 'theme-editor.php' && $hook !=='appearance_page_options-framework') 
 
 	wp_enqueue_script('codemirror');
 	wp_enqueue_style('codemirror');
