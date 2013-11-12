@@ -101,7 +101,6 @@ if(get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width') {
         //else echo 'footer.site-footer > .container {background-color: #ddd;}';
 } else {echo 'html {background:#ddd;}';}
 
-
 echo 'footer.site-footer '.((get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width')?' .container':'').' {';
 if($ftr_bg_color){echo 'background:' .$ftr_bg_color.';';}
 if($ftr_text_color){echo 'color:' .$ftr_text_color.';';}
