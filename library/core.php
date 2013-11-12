@@ -160,9 +160,10 @@ function skematik_bootstrap_responsive_css() {
 		wp_enqueue_style( 'navbar-gridfloatbreakpoint' );
 	//}	
 	
-	$menu_depth = get_theme_mod( 'menu_depth', 0);
-	if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
-	wp_enqueue_style( 'dropdown-submenu' );	
+	//HTMLgraphic - Disabled for better experience
+	//$menu_depth = get_theme_mod( 'menu_depth', 0);
+	//if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
+	//wp_enqueue_style( 'dropdown-submenu' );	
 }
 
 
@@ -464,9 +465,14 @@ function skematik_main_nav($menu_class='') {
         'container'         => 'false',
         'container_class'   => 'collapse navbar-collapse navbar-jbst-collapse',
         'menu_class'        => 'nav navbar-nav',
+        'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s</ul><ul class="nav navbar-nav navbar-right">
+                                  <li><a href="/c/payment"><span class="glyphicon glyphicon-usd"></span>&nbsp; Pay Online</a></li><li><a href="/c/contact"><span class="glyphicon glyphicon-earphone"></span>&nbsp; Contact Us</a></li></ul>',
+            
         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
         'walker'            => new wp_bootstrap_navwalker())
     );
+
+
 
 
 do_action( 'skematik_after_main_nav' );
