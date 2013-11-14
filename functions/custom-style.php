@@ -173,6 +173,12 @@ echo '
 	font-weight: normal;
 	src: url("/wp-content/themes/bs3/library/assets/font/AlexBrush-Regular.ttf");
 }
+@font-face {
+	font-family: "Neris";
+	font-style: bold;
+	font-weight: 500;
+	src: url("/wp-content/themes/bs3/library/assets/font/Neris-Black.otf");
+}
 .spacer {margin-top: 30px;}
 #checkbox label{font-weight: normal; cursor: pointer;}
 #checkbox label:hover{background: #FFFBCC;}
@@ -205,10 +211,10 @@ echo '
 }
 h1 {
     color: #F8D960;
-    font-family: Tahoma,Geneva,sans-serif;
-    font-size: 30px;
+    font-family: Neris, Tahoma, Geneva, sans-serif;
+    font-size: 3.2rem;
     line-height: 36px;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     padding: 20px 0 10px;
 }
