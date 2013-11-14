@@ -142,7 +142,7 @@ function skematik_main_navbar() {
 	
 	if(get_theme_mod( 'navbar_style' ) == '') {?><div class="container"><?php } ?>
 	
-	<nav role="navigation" class="navbar navbar-default <?php echo get_theme_mod( 'navbar_style', '' );?> <?php //echo get_theme_mod( 'navbar_color', 'navbar-default' );?>" id="skematik-top-nav">
+	<nav role="navigation" class="navbar navbar-inverse <?php echo get_theme_mod( 'navbar_style', '' );?> <?php //echo get_theme_mod( 'navbar_color', 'navbar-default' );?>" id="skematik-top-nav">
       <?php if(get_theme_mod( 'navbar_style' ) != '') {?><div class="container"><?php } ?>
        <div class="navbar-header">
 		<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->

@@ -182,6 +182,33 @@ echo '
 	clear: both;
 }
 
+.listcolumn_box ul {
+    margin: 20px;
+    padding: 0;
+}
+.listcolumn_box ul li {
+    border-bottom: 1px dotted #F8D960;
+    color: #FFFFFF;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    list-style-image: url("/wp-content/themes/bs3/assets/img/checkmark.png");
+    list-style-position: outside;
+    margin: 4px 0;
+    padding: 6px 0;
+}
+h1 {
+    color: #F8D960;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px 0 10px;
+}
+.page p { font-size: 1.6rem; line-height: 30px;}
+.noteable p { color:#FFF; font-family: Radley, serif; font-variant: italic; font-size:3.2rem; padding-top: 10px;}
+
 
 @media (max-width: 768px) {
 		footer.site-footer { background: none; }

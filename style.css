@@ -57,7 +57,7 @@ body {color: #FFF;
 ----------------------------------------------- */
 footer.site-footer {color:#fff; padding:15px 0 80px 0;}
 .site-info {text-align: center; padding-top: 20px;margin-top:10px;margin-bottom:5px;}
-footer {background: url('/wp-content/themes/bs3/assets/img/bg_footer.jpg'); border-top: 1px solid #333; padding: 15px 0;}
+footer {background: url('/wp-content/themes/bs3/assets/img/bg_footer.jpg') bottom repeat-x; border-top: 1px solid #333; padding: 15px 0;}
 #content footer {padding:15px 0; margin-top:15px;}
 #content footer.entry-meta.no-border {border-top:0; margin-top:0; padding:10px 0 40px;}
 footer .widget li {padding: 10px 0; border-bottom: 1px solid #ddd;}
