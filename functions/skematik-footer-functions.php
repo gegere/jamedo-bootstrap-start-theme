@@ -101,9 +101,9 @@ $ftr_widgets = get_theme_mod( 'footer_widgets_number', 4 );
 // }
 
 echo '<div class="row">
-		<div class="col-sm-4"><div class="textwidget"><img src="http://placehold.it/300x125"></div></div>
-		<div class="col-sm-4"><div class="textwidget"><img src="http://placehold.it/300x125"></div></div>
-		<div class="col-sm-4"><div class="textwidget"><img src="http://placehold.it/300x125"></div></div>
+		<div class="col-sm-4"><div class="textwidget"><a href="/c/quote"><img src="/wp-content/themes/bs3/assets/img/footer_wi.jpg"></a></div></div>
+		<div class="col-sm-4"><div class="textwidget"><a href="http://fb.com/pages/Asphalt-Seal-Repair/341749302525789"><img src="/wp-content/themes/bs3/assets/img/footer_fb_connect.jpg"></a></div></div>
+		<div class="col-sm-4"><div class="textwidget"><img src="/wp-content/themes/bs3/assets/img/footer_eco.jpg"></div></div>
 	</div>';
 }
 
@@ -116,7 +116,7 @@ FOOTER CREDITS
 function skematik_custom_credits() {
 	if(get_theme_mod('footer_credits') <> "") {echo get_theme_mod('footer_credits');}
 	else {?>
-		<?php printf( __( '&copy;', 'jamedo-bootstrap-start-theme' )); ?> <?php echo date('Y');?> <?php echo bloginfo('name');?><span class="sep"> | </span><a target="_blank" href="<?php esc_attr_e( 'http://www.htmlgraphic.com/?utm_source=asphaltsealandrepair.com&utm_medium=web&utm_content=A&utm_campaign=development', 'jamedo-bootstrap-start-theme' ); ?>" title="<?php esc_attr_e( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ); ?>" rel="generator"><?php printf( __( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ), 'jamedo-bootstrap-start-theme' ); ?></a>
+		<?php printf( __( '&copy;', 'jamedo-bootstrap-start-theme' )); ?> <?php echo date('Y');?> <?php echo bloginfo('name');?><span class="sep"> &bull; </span><a target="_blank" href="<?php esc_attr_e( 'http://www.htmlgraphic.com/?utm_source=asphaltsealandrepair.com&utm_medium=web&utm_content=A&utm_campaign=development', 'jamedo-bootstrap-start-theme' ); ?>" title="<?php esc_attr_e( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ); ?>" rel="generator"><?php printf( __( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ), 'jamedo-bootstrap-start-theme' ); ?></a>
 	<?php }
 }
 

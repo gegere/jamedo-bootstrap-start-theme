@@ -21,7 +21,7 @@
 				</article><!-- /#post-<?php the_ID(); ?> -->
 			<?php endwhile; // end of the loop. ?>
 			
-			<hr class="bs-docs-separator clear">
+			
 			
 			<?php
 			
