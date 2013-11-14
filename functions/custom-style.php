@@ -167,6 +167,12 @@ if($container == 768) {
 do_action('skematik_add_to_custom_style');
 
 echo '
+@font-face {
+	font-family: "alex-brush";
+	font-style: normal;
+	font-weight: normal;
+	src: url("/wp-content/themes/bs3/library/assets/font/AlexBrush-Regular.ttf");
+}
 .spacer {margin-top: 30px;}
 #checkbox label{font-weight: normal; cursor: pointer;}
 #checkbox label:hover{background: #FFFBCC;}
@@ -207,8 +213,12 @@ h1 {
     padding: 20px 0 10px;
 }
 .page p { font-size: 1.6rem; line-height: 30px;}
-.noteable p { color:#FFF; font-family: Radley, serif; font-variant: italic; font-size:3.2rem; padding-top: 10px;}
+.noteable p { color:#FFF; font-family: alex-brush, serif; font-variant: italic; font-size:4.2rem; padding-top: 10px;}
 
+.rsUni, .rsUni .rsOverflow, .rsUni .rsSlide, .rsUni .rsVideoFrameHolder, .rsUni .rsThumbs  {
+    background: none;
+    color: #FFFFFF;
+}
 
 @media (max-width: 768px) {
 		footer.site-footer { background: none; }

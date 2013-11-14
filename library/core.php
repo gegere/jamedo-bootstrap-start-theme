@@ -177,11 +177,6 @@ function skematik_lightbox_css() {
     wp_enqueue_style( 'skematik_lightbox_css' );
 }
 
-function hg_google_fonts() {
-	wp_register_style( 'hg_google_fonts', '//fonts.googleapis.com/css?family=Radley:400italic', array(), '20131114', 'all' );
-    wp_enqueue_style( 'hg_google_fonts' );
-}
-
 	
 /*
 ==========================================================

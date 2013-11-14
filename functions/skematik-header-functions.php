@@ -241,8 +241,7 @@ function skematik_nav_styles() {
 	if(get_theme_mod( 'navbar_style' ) == '') { //default
 	echo '
 	body { padding-top: 30px; }
-        .navbar { margin-bottom: 30px; margin-left: -15px;
-    margin-right: -15px;}
+        .navbar { margin-left: -15px; margin-right: -15px;}
 	';
 	}
 	if(get_theme_mod( 'navbar_style') == 'navbar-static-top') {

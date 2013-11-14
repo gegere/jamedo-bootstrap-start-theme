@@ -85,8 +85,8 @@ function skematik_styles_css() {
 add_action( 'wp_enqueue_scripts', 'skematik_bootstrap_css', 99 );
 add_action( 'wp_enqueue_scripts', 'skematik_bootstrap_responsive_css', 99  );
 add_action( 'wp_enqueue_scripts', 'skematik_styles_css',99 );
-//add_action( 'wp_enqueue_scripts', 'skematik_prettify_css', 99  );
-add_action( 'wp_enqueue_scripts', 'hg_google_fonts', 99  );
+add_action( 'wp_enqueue_scripts', 'skematik_prettify_css', 99  );
+add_action( 'wp_enqueue_scripts', 'skematik_prettify_css', 99  );
 if (of_get_option('lightbox_switch', 1) == 1) {
 	add_action( 'wp_enqueue_scripts', 'skematik_lightbox_css', 99  );
 }

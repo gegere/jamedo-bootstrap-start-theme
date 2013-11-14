@@ -13,10 +13,10 @@
  * @since skematik 1.0
  */
 get_header();
-do_action( 'jbst_before_content_page' );
-
 
 echo get_new_royalslider(1);
+
+do_action( 'jbst_before_content_page' );
 ?>
 
 
