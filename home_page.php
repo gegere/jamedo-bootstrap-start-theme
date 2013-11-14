@@ -18,6 +18,9 @@ do_action( 'jbst_before_content_page' );
 
 echo get_new_royalslider(1);
 ?>
+
+
+
 		<?php if ( have_posts() ) : ?>
 				<?php 
 					if ( is_page() ) { get_template_part( 'content', 'page' );}

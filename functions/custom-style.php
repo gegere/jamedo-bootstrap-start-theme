@@ -170,6 +170,18 @@ echo '
 .spacer {margin-top: 30px;}
 #checkbox label{font-weight: normal; cursor: pointer;}
 #checkbox label:hover{background: #FFFBCC;}
+.row { padding-top: 20px;}
+.clear:before, .clear:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+	
+.clear:after {
+	clear: both;
+}
+
 
 @media (max-width: 768px) {
 		footer.site-footer { background: none; }
