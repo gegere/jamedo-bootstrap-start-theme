@@ -42,7 +42,7 @@ echo '}';
 echo 'body {';
 if($body_font){echo 'font-family:"' .$body_font.'",helvetica,arial,sans-serif;';}
 if($body_color){echo 'color:' .$body_color.';';}
-if($body_size){echo 'font-size:'.$body_size.'px;';}
+//if($body_size){echo 'font-size:'.$body_size.'px;';}
 if($body_line){echo 'line-height:' .$body_line.';';}
 echo '}';
 if($body_line){echo 'h4, h5, h6 {line-height:' .$body_line.';}';}
@@ -202,13 +202,22 @@ echo '
     border-bottom: 1px dotted #F8D960;
     color: #FFFFFF;
     font-family: Tahoma,Geneva,sans-serif;
-    font-size: 12px;
+    font-size: 1.6rem;
     line-height: 18px;
     list-style-image: url("/wp-content/themes/bs3/assets/img/checkmark.png");
     list-style-position: outside;
     margin: 4px 0;
     padding: 6px 0;
 }
+.list_noline ul{
+	padding:0;
+}
+.list_noline ul li {
+    border-bottom: none;
+    margin: 4px 0 4px 30px;
+    line-height: 22px;
+}
+
 h1, h2 {
     color: #F8D960;
     font-family: Neris, Tahoma, Geneva, sans-serif;
