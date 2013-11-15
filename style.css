@@ -64,9 +64,10 @@ footer .widget li {padding: 10px 0; border-bottom: 1px solid #ddd;}
 footer .widget .nav li {padding:0; border-bottom:0;}
 footer .shoppingcart table td, footer .shoppingcart table th {border-bottom: 1px solid #ddd;}
 footer.site-footer a.btn, footer.site-footer a.btn:hover {color:#fff;}footer.site-footer a.btn-default, footer.site-footer a.btn-default:hover {color:#333;}
-footer a {background: url("/wp-content/themes/bs3/assets/img/bg_a_hover.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+footer a, a.link {background: url("/wp-content/themes/bs3/assets/img/bg_a_hover.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
     color: #FFFFFF; padding: 12px 0;}
-    footer a:hover{background: none; color: #fff; text-decoration: none;}
+    a.link { padding: 3px 0;}
+    footer a:hover, a.link:hover{background: none; color: #fff; text-decoration: none;}
 
 
 /* =Form Elements

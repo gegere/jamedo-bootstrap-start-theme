@@ -209,7 +209,7 @@ echo '
     margin: 4px 0;
     padding: 6px 0;
 }
-h1 {
+h1, h2 {
     color: #F8D960;
     font-family: Neris, Tahoma, Geneva, sans-serif;
     font-size: 3.2rem;
@@ -218,6 +218,7 @@ h1 {
     margin: 0;
     padding: 20px 0 10px;
 }
+h2 {font-size: 2.8rem;}
 .page p { font-size: 1.6rem; line-height: 30px;}
 .noteable p { color:#FFF; font-family: alex-brush, serif; font-variant: italic; font-size:4.2rem; padding-top: 10px;}
 
