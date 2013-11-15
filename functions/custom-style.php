@@ -99,7 +99,7 @@ if(get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width') {
 	echo 'footer.site-footer {background:none!important;}';
         //if($ftr_bg_color) echo 'footer.site-footer > .container {background-color:' .$ftr_bg_color.';}';
         //else echo 'footer.site-footer > .container {background-color: #ddd;}';
-} else {echo 'html {background:#ddd;}';}
+} else {echo 'html {background:#000;}';}
 
 echo 'footer.site-footer '.((get_theme_mod( 'footer_width', 'full-width' ) == 'cont-width')?' .container':'').' {';
 if($ftr_bg_color){echo 'background:' .$ftr_bg_color.';';}
