@@ -37,9 +37,10 @@ do_action( 'jbst_before_content_page' );
 <div class="row">
 
 
-<div class="col-lg-2 col-md-4 text-center">
+<div class="col-xs-6 col-md-4 text-center">
 <?php if ( $post->ID == 210 ) { ?>
 <img src="<?=get_template_directory_uri() ?>/assets/img/210.jpg" width="140" height="100" class="link select">
+<p>&nbsp;</p>
 <?php } else { ?>
 <a href="/photo-gallery-crack-sealing"><img src="<?=get_template_directory_uri() ?>/assets/img/210.jpg" width="140" height="100" class="link"></a>
 <p><a href="/photo-gallery-crack-sealing" class="link">Crack Sealing</a></p>
@@ -47,36 +48,40 @@ do_action( 'jbst_before_content_page' );
 </div>
 
 
-<div class="col-lg-2 col-md-4 text-center">
+<div class="col-xs-6 col-md-4 text-center">
 <?php if ( $post->ID == 212 ) { ?>
 <img src="<?=get_template_directory_uri() ?>/assets/img/212.jpg" width="140" height="100" class="link select">
+<p>&nbsp;</p>
 <?php } else { ?>
 <a href="/photo-gallery-seal-coating"><img src="<?=get_template_directory_uri() ?>/assets/img/212.jpg" width="140" height="100" class="link"></a>
 <p><a href="/photo-gallery-seal-coating" class="link">Seal Coating</a></p>
 <?php } ?>
 </div>
 
-<div class="col-lg-2 col-md-4 text-center">
+<div class="col-xs-6 col-md-4 text-center">
 <?php if ( $post->ID == 214 ) { ?>
 <img src="<?=get_template_directory_uri() ?>/assets/img/214.jpg" width="140" height="100" class="link select">
+<p>&nbsp;</p>
 <?php } else { ?>
 <a href="/photo-gallery-asphalt-patching/"><img src="<?=get_template_directory_uri() ?>/assets/img/214.jpg" width="140" height="100" class="link"></a>
 <p><a href="/photo-gallery-asphalt-patching/" class="link">Asphalt Patching</a></p>
 <?php } ?>
 </div>
 
-<div class="col-lg-2 col-md-4 text-center">
+<div class="col-xs-6 col-md-4 text-center">
 <?php if ( $post->ID == 218 ) { ?>
 <img src="<?=get_template_directory_uri() ?>/assets/img/218.jpg" width="140" height="100" class="link select">
+<p>&nbsp;</p>
 <?php } else { ?>
 <a href="/photo-gallery-equipment"><img src="<?=get_template_directory_uri() ?>/assets/img/218.jpg" width="140" height="100" class="link"></a>
 <p><a href="/photo-gallery-equipment" class="link">Job Equipment</a></p>
 <?php } ?>
 </div>
 
-<div class="col-lg-2 col-md-4 text-center">
+<div class="col-xs-6 col-md-4 text-center">
 <?php if ( $post->ID == 216 ) { ?>
 <img src="<?=get_template_directory_uri() ?>/assets/img/216.jpg" width="140" height="100" class="link select">
+<p>&nbsp;</p>
 <?php } else { ?>
 <a href="/photo-gallery-beautiful-asphalt"><img src="<?=get_template_directory_uri() ?>/assets/img/216.jpg" width="140" height="100" class="link"></a>
 <p><a href="/photo-gallery-beautiful-asphalt" class="link">Beautiful Asphalt</a></p>
