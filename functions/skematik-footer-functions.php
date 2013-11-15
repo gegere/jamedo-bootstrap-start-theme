@@ -101,9 +101,9 @@ $ftr_widgets = get_theme_mod( 'footer_widgets_number', 4 );
 // }
 
 echo '<div class="row">
-		<div class="col-sm-4"><div class="textwidget"><a href="/c/quote"><img src="/wp-content/themes/bs3/assets/img/footer_wi@2x.jpg" width="300"></a></div></div>
-		<div class="col-sm-4"><div class="textwidget"><a href="http://fb.com/pages/Asphalt-Seal-Repair/341749302525789"><img src="/wp-content/themes/bs3/assets/img/footer_fb_connect@2x.jpg" width="300"></a></div></div>
-		<div class="col-sm-4"><div class="textwidget"><img src="/wp-content/themes/bs3/assets/img/footer_eco@2x.jpg" width="300"></div></div>
+		<div class="col-sm-4"><div class="textwidget"><a href="/c/quote"><img src="/wp-content/themes/bs3/assets/img/footer_wi@2x.jpg" width="280"></a></div></div>
+		<div class="col-sm-4"><div class="textwidget"><a href="http://fb.com/pages/Asphalt-Seal-Repair/341749302525789"><img src="/wp-content/themes/bs3/assets/img/footer_fb_connect@2x.jpg" width="280"></a></div></div>
+		<div class="col-sm-4"><div class="textwidget"><img src="/wp-content/themes/bs3/assets/img/footer_eco@2x.jpg" width="280"></div></div>
 	</div>';
 }
 
