@@ -116,7 +116,7 @@ FOOTER CREDITS
 function skematik_custom_credits() {
 	if(get_theme_mod('footer_credits') <> "") {echo get_theme_mod('footer_credits');}
 	else {?>
-		<?php printf( __( '&copy;', 'jamedo-bootstrap-start-theme' )); ?> <?php echo date('Y');?> <?php echo bloginfo('name');?><span class="sep"> &bull; </span><a target="_blank" href="<?php esc_attr_e( 'http://www.htmlgraphic.com/?utm_source=asphaltsealandrepair.com&utm_medium=web&utm_content=A&utm_campaign=development', 'jamedo-bootstrap-start-theme' ); ?>" title="<?php esc_attr_e( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ); ?>" rel="generator"><?php printf( __( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ), 'jamedo-bootstrap-start-theme' ); ?></a>
+		<?php printf( __( '&copy;', 'jamedo-bootstrap-start-theme' )); ?> <?php echo date('Y');?> <?php echo bloginfo('name');?><span class="sep"> &bull; </span><a target="_blank" class="link" href="<?php esc_attr_e( 'http://www.htmlgraphic.com/?utm_source=asphaltsealandrepair.com&utm_medium=web&utm_content=A&utm_campaign=development', 'jamedo-bootstrap-start-theme' ); ?>" title="<?php esc_attr_e( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ); ?>" rel="generator"><?php printf( __( 'Developed by HTMLgraphic', 'jamedo-bootstrap-start-theme' ), 'jamedo-bootstrap-start-theme' ); ?></a>
 	<?php }
 }
 
