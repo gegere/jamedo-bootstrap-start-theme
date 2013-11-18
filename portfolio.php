@@ -88,7 +88,7 @@ $thumb_size = 140;
 ########################### INDIVIDUAL GALLERIES
 ?>
 <div class="photo-gallery">
-<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+<div class="col-xs-12 col-sm-4 col-md-3 text-center">
 	<div class="thumbnail"><p>
 	<?php ( $post->ID == 210 ) ? $class = 'class="select"' : $class = 'class="link"'; ?>
 	<?php if ( $post->ID == 210 ) { ?>
@@ -101,7 +101,7 @@ $thumb_size = 140;
 </div>
 
 
-<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+<div class="col-xs-12 col-sm-4 col-md-3 text-center">
 	<div class="thumbnail"><p>
 	<?php ( $post->ID == 212 ) ? $class = 'class="select"' : $class = 'class="link"'; ?>
 	<?php if ( $post->ID == 212 ) { ?>
@@ -113,7 +113,7 @@ $thumb_size = 140;
 	</div>
 </div>
 
-<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+<div class="col-xs-12 col-sm-4 col-md-3 text-center">
 	<div class="thumbnail"><p>
 	<?php ( $post->ID == 214 ) ? $class = 'class="select"' : $class = 'class="link"'; ?>
 	<?php if ( $post->ID == 214 ) { ?>
@@ -125,7 +125,7 @@ $thumb_size = 140;
 	</div>
 </div>
 
-<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+<div class="col-xs-12 col-sm-4 col-md-3 text-center">
 	<div class="thumbnail"><p>
 	<?php ( $post->ID == 218 ) ? $class = 'class="select"' : $class = 'class="link"'; ?>
 	<?php if ( $post->ID == 218 ) { ?>
@@ -137,7 +137,7 @@ $thumb_size = 140;
 	</div>
 </div>
 
-<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+<div class="col-xs-12 col-sm-4 col-md-3 text-center">
 	<div class="thumbnail"><p>
 	<?php ( $post->ID == 216 ) ? $class = 'class="select"' : $class = 'class="link"'; ?>
 	<?php if ( $post->ID == 216 ) { ?>
