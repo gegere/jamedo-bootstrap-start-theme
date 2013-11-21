@@ -723,11 +723,11 @@ function bones_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
-			<div class="comment-author vcard row-fluid clearfix">
+			<div class="comment-author vcard row">
 				<div class="avatar <?php echo JBST_GRIDPREFIX;?>2">
 					<?php echo get_avatar($comment,$size='75',$default='' ); ?>
 				</div>
-				<div class="<?php echo JBST_GRIDPREFIX;?>  comment-text">
+				<div class="<?php echo JBST_GRIDPREFIX;?>10  comment-text">
 					<?php printf(__('<h4>%s</h4>','jamedo-bootstrap-start-theme'), get_comment_author_link()) ?>
 					
                     
@@ -804,7 +804,7 @@ width:auto;position: relative;top:-6px;margin-right:10px;outline: none;width: 58
 
 #optionsframework #section-newcontent.section .controls {width:100%;}
 #optionsframework #section-newcontent.section {padding:20px 0 0;}
-#optionsframework #section-newcontent.section .CodeMirror, .CodeMirror div {margin-right: 0px!important;}
+
 
 #optionsframework-submit input[type="submit"].button-secondary {float:right;}
 
@@ -1089,14 +1089,6 @@ function skematik_category_transient_flusher() {
 add_action( 'edit_category', 'skematik_category_transient_flusher' );
 add_action( 'save_post', 'skematik_category_transient_flusher' );
 
-/*
-==========================================================
-CODE MIRROR FOR EDITORS
-==========================================================
-*/
-if (of_get_option('code_mirror_switch', 1) == 1) {
-require_once( trailingslashit( get_template_directory() ) . 'library/codemirror.php' );
-}
 
 /*
 ==========================================================
@@ -1338,9 +1330,22 @@ function skematik_resize( $attach_id = null, $img_url = null, $width, $height, $
 		}
 
 		// no cache files - let's finally resize it
-		$new_img_path = image_resize( $file_path, $width, $height, $crop );
+		
+  
+        $new_img_path = dirname ($file_path).'/'.$width.'-'.$height.'-'.basename( $file_path );
+        
+		$image = wp_get_image_editor( $file_path  ); // Return an implementation that extends <tt>WP_Image_Editor</tt>
+
+		if ( ! is_wp_error( $image ) ) {
+			
+			$image->resize($width, $height, $crop );
+			$image->save( $new_img_path );
+		}
+		
 		$new_img_size = getimagesize( $new_img_path );
 		$new_img = str_replace( basename( $image_src[0] ), basename( $new_img_path ), $image_src[0] );
+		
+
 
 		// resized output
 		$skematik_image = array (
