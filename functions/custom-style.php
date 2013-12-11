@@ -235,6 +235,7 @@ h2 {font-size: 2.8rem;}
     background: none;
     color: #FFFFFF;
 }
+.nogap { padding-top: 0;}
 
 @media (max-width: 768px) {
 		footer.site-footer { background: none; }
