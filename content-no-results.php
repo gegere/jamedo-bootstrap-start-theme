@@ -40,8 +40,4 @@
 				</article><!-- #post-0 -->
 			<?php endwhile; ?>
 
-<<<<<<< HEAD
-			<?php skematik_content_nav( 'nav-below' ); ?>
-=======
 			<?php jbst_content_nav( 'nav-below' ); ?>
->>>>>>> d5593735031416c8508bac6624f0120fa71641ef
