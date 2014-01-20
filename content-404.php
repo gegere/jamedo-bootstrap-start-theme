@@ -1,14 +1,20 @@
 <?php
 /**
- * @package skematik
- * @since skematik 1.0
+ * @package jbst
+ * @since jbst 1.0
  */
 ?>
+<<<<<<< HEAD
 			<?php skematik_content_nav( 'nav-above' ); ?>
 
 			<?php do_action( 'skematik_before_content_404' );?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
+=======
+
+			<?php jbst_content_nav( 'nav-above' ); ?>
+			<?php do_action( 'jbst_before_content_404' );?>
+>>>>>>> d5593735031416c8508bac6624f0120fa71641ef
 			
 				<article id="post-0" class="post error404 not-found">
 					<header class="entry-header">
@@ -30,8 +36,8 @@
 						</div>
 	
 						<?php
-						/* translators: %1$s: smilie */
-						$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'jamedo-bootstrap-start-theme' ), convert_smilies( ':)' ) ) . '</p>';
+						
+						$archive_content = '<p>' . __( 'Try looking in the monthly archives.', 'jamedo-bootstrap-start-theme' )  . '</p>';
 						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 						?>
 	
@@ -39,6 +45,10 @@
 	
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
-			<?php endwhile; ?>
 
+<<<<<<< HEAD
 			<?php skematik_content_nav( 'nav-below' ); ?>
+=======
+
+			<?php jbst_content_nav( 'nav-below' ); ?>
+>>>>>>> d5593735031416c8508bac6624f0120fa71641ef

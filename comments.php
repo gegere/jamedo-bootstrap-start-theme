@@ -1,4 +1,4 @@
-<?php skematik_comment_button_classes();
+<?php jbst_comment_button_classes();
 // Do not delete these lines
   if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
     die ('Please do not load this page directly. Thanks!');
@@ -30,7 +30,8 @@
 	
 	</h3>
 
-	<nav id="comment-nav">
+	<nav class="comment-nav" id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+		<h3 class="sr-only"><?php _e( 'Comment navigation', 'jamedo-bootstrap-start-theme' ); ?></h3>
 		<ul>
 	  		<li><?php previous_comments_link( __("Older comments",'jamedo-bootstrap-start-theme') ) ?></li>
 	  		<li><?php next_comments_link( __("Newer comments",'jamedo-bootstrap-start-theme') ) ?></li>
@@ -41,7 +42,8 @@
 		<?php wp_list_comments('type=comment&callback=bones_comments&format=html5'); ?>
 	</ol>
 	
-	<nav id="comment-nav">
+	<nav class="comment-nav" id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+		<h3 class="sr-only"><?php _e( 'Comment navigation', 'jamedo-bootstrap-start-theme' ); ?></h3>
 		<ul>
 	  		<li><?php previous_comments_link( __("Older comments",'jamedo-bootstrap-start-theme') ) ?></li>
 	  		<li><?php next_comments_link( __("Newer comments",'jamedo-bootstrap-start-theme') ) ?></li>
@@ -87,11 +89,6 @@
 	
 	} else {comment_form_title( __("Leave a Reply",'jamedo-bootstrap-start-theme'), __("Leave a Reply to",'jamedo-bootstrap-start-theme') . ' %s' );} ?>
 	</h3>
-
-	<div id="cancel-comment-reply">
-		<p class="small"><?php cancel_comment_reply_link( __("Cancel",'jamedo-bootstrap-start-theme') ); ?></p>
-	</div>
-
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
   	<div class="help">
   		<p><?php _e("You must be",'jamedo-bootstrap-start-theme'); ?> <a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e("logged in",'jamedo-bootstrap-start-theme'); ?></a> <?php _e("to post a comment",'jamedo-bootstrap-start-theme'); ?>.</p>
@@ -112,7 +109,7 @@
 			  <label for="author"><?php _e("Name",'jamedo-bootstrap-start-theme'); ?> <?php if ($req) echo "(". __("required",'jamedo-bootstrap-start-theme') .")"; ?></label>
 			  <div class="input-group">
 			  	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			  	<input class="form-control" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e("Your Name",'jamedo-bootstrap-start-theme'); ?>" tabindex="1" <?php if ($req) echo ' required aria-required="true"'; ?> />
+			  	<input class="form-control" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e("Your Name",'jamedo-bootstrap-start-theme'); ?>" <?php if ($req) echo ' required aria-required="true"'; ?> />
 			  </div>
 		  	</div>
 
@@ -122,7 +119,7 @@
 			  <label for="email"><?php _e("Mail",'jamedo-bootstrap-start-theme'); ?> <?php if ($req) echo "(". __("required",'jamedo-bootstrap-start-theme') .")"; ?></label>
 			  <div class="input-group">
 			  	<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			  	<input class="form-control" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e("Your Email",'jamedo-bootstrap-start-theme'); ?>" tabindex="2" <?php if ($req) echo ' required aria-required="true"'; ?>  />
+			  	<input class="form-control" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e("Your Email",'jamedo-bootstrap-start-theme'); ?>" <?php if ($req) echo ' required aria-required="true"'; ?>  />
 			  	
 			  </div>
 			  <span class="help-block">(<?php _e("will not be published",'jamedo-bootstrap-start-theme'); ?>)</span>
@@ -133,7 +130,7 @@
 			  <label for="url"><?php _e("Website",'jamedo-bootstrap-start-theme'); ?></label>
 			  <div class="input-group">
 			  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-			  	<input class="form-control" type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e("Your Website",'jamedo-bootstrap-start-theme'); ?>" tabindex="3" <?php if ($req) echo ' required aria-required="true"'; ?> />
+			  	<input class="form-control" type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e("Your Website",'jamedo-bootstrap-start-theme'); ?>" <?php if ($req) echo ' required aria-required="true"'; ?> />
 			  </div>
 		  	</div>
 
@@ -142,12 +139,12 @@
 	<?php endif; ?>
 	
 	<div class="form-group">
-	
-			<textarea class="form-control" role="textbox" aria-multiline="true" name="comment" id="comment" rows="8" placeholder="<?php _e("Your Comment Here...",'jamedo-bootstrap-start-theme'); ?>" tabindex="4"></textarea>
+			<label for="comment" class="sr-only"><?php (function_exists('is_product') && is_product())?_e("Review",'jamedo-bootstrap-start-theme'):_e("Reply",'jamedo-bootstrap-start-theme'); ?></label>
+			<textarea class="form-control" role="textbox" aria-multiline="true" name="comment" id="comment" rows="8" placeholder="<?php _e("Your Comment Here...",'jamedo-bootstrap-start-theme'); ?>"></textarea>
 
 	</div>
 	<div class="form-group">
-	<button class="btn <?php skematik_button_class();?>" name="submit" id="submitform" tabindex="5"><?php _e("Submit Comment",'jamedo-bootstrap-start-theme'); ?></button>
+	<button class="btn <?php jbst_button_class();?>" name="submit" id="submitform"><?php _e("Submit Comment",'jamedo-bootstrap-start-theme'); ?></button>
 	<?php comment_id_fields(); ?>
 	</div>
 	<?php 
@@ -160,5 +157,6 @@
 	
 	<?php endif; // If registration required and not logged in ?>
 </section>
-</div>
+
 <?php endif; // if you delete this the sky will fall on your head ?>
+</div>
