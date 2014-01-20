@@ -33,12 +33,8 @@ class jbst_Menu_Widget extends WP_Widget {
 			echo $args['before_title'] . $instance['title'] . $args['after_title'];
 	           global $wp_query;     
 
-<<<<<<< HEAD
-		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'link_before' => '<i class="glyphicon glyphicon-chevron-right"></i>', 'menu_class' => 'nav skematik_custom_nav '.$show_info.' nav-stacked', 'walker' => new description_walker()) );
-=======
-		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'link_before' => '<i class="glyphicon glyphicon-chevron-right"></i>', 'menu_class' => 'nav jbst_custom_nav '.$show_info.' nav-stacked', 'walker' => new wp_bootstrap_navwalker()) );
->>>>>>> d5593735031416c8508bac6624f0120fa71641ef
 
+		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'link_before' => '<i class="glyphicon glyphicon-chevron-right"></i>', 'menu_class' => 'nav jbst_custom_nav '.$show_info.' nav-stacked', 'walker' => new wp_bootstrap_navwalker()) );
 		echo $args['after_widget'];
   } 
  
