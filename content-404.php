@@ -4,17 +4,8 @@
  * @since jbst 1.0
  */
 ?>
-<<<<<<< HEAD
-			<?php skematik_content_nav( 'nav-above' ); ?>
-
-			<?php do_action( 'skematik_before_content_404' );?>
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-=======
-
 			<?php jbst_content_nav( 'nav-above' ); ?>
 			<?php do_action( 'jbst_before_content_404' );?>
->>>>>>> d5593735031416c8508bac6624f0120fa71641ef
 			
 				<article id="post-0" class="post error404 not-found">
 					<header class="entry-header">
@@ -46,9 +37,4 @@
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 
-<<<<<<< HEAD
-			<?php skematik_content_nav( 'nav-below' ); ?>
-=======
-
 			<?php jbst_content_nav( 'nav-below' ); ?>
->>>>>>> d5593735031416c8508bac6624f0120fa71641ef
