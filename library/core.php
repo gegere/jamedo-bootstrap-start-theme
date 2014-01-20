@@ -151,9 +151,7 @@ Stylesheets
 
 function jbst_bootstrap_css() {
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/library/assets/css/bootstrap.min.css', array(), '20130727', 'all' );
-    
-
-wp_enqueue_style( 'bootstrap' );
+    wp_enqueue_style( 'bootstrap' );
 }
 
 function jbst_bootstrap_responsive_css() {
