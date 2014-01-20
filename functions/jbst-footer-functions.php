@@ -31,7 +31,7 @@ function jbst_bottom_content_wrapper() {
 	echo '
 				</div><!-- .row -->
 		</div><!-- #page .hfeed .site -->
-	</div><!-- #contentwrap -->';
+	</div> <!-- #contentwrap -->';
 }
 
 
@@ -67,44 +67,38 @@ FOOTER WIDGETS
 function jbst_footer_widgets() {
 $ftr_widgets = get_theme_mod( 'footer_widgets_number', 4 );
 
-# Default widget code has been commented out as there are more advance needs for the footer 
-// if($ftr_widgets > 0) 
-// {
-// 	$span = 12 / $ftr_widgets;	
+if($ftr_widgets > 0) 
+{
+	$span = 12 / $ftr_widgets;	
 	
 	
-// 	$footer_widgets_array = array(
-//         __('One','jamedo-bootstrap-start-theme'),
-//         __('Two','jamedo-bootstrap-start-theme'),
-//         __('Three','jamedo-bootstrap-start-theme')
-//     );
+	$footer_widgets_array = array(
+        __('One','jamedo-bootstrap-start-theme'),
+        __('Two','jamedo-bootstrap-start-theme'),
+        __('Three','jamedo-bootstrap-start-theme'),
+        __('Four','jamedo-bootstrap-start-theme')
+    );
 	
-// 	echo '<div class="row">';
+	echo '<div class="row">';
 		
-// 	for ( $i=0; $i < $ftr_widgets; $i++ ) 
-// 	{
-// 		echo '<div class="'. JBST_GRIDPREFIX . $span.'">';
-// 			if ( ! dynamic_sidebar( 'footer-widget-'.($i+1) ) ) :
-// 				echo '<h4>';
-// 				echo __( 'Footer Widget', 'jamedo-bootstrap-start-theme' ).' '.$footer_widgets_array[$i];
-// 				echo '</h4>';
-// 				echo '<p>';
-// 				_e( 'You have activated a Footer Widget! You can deactivate this in the Theme Customizer or put content in it under "Appearance > Widgets".', 'jamedo-bootstrap-start-theme' );
-// 				echo '</p>';
-// 			endif;
-// 		echo '</div>';
-// 	}	
+	for ( $i=0; $i < $ftr_widgets; $i++ ) 
+	{
+		echo '<div class="'. JBST_GRIDPREFIX . $span.'">';
+			if ( ! dynamic_sidebar( 'footer-widget-'.($i+1) ) ) :
+				echo '<h4>';
+				echo __( 'Footer Widget', 'jamedo-bootstrap-start-theme' ).' '.$footer_widgets_array[$i];
+				echo '</h4>';
+				echo '<p>';
+				_e( 'You have activated a Footer Widget! You can deactivate this in the Theme Customizer or put content in it under "Appearance > Widgets".', 'jamedo-bootstrap-start-theme' );
+				echo '</p>';
+			endif;
+		echo '</div>';
+	}	
 		
-// 	echo '</div>';
-// }
-// }
-
-echo '<div class="row">
-		<div class="col-sm-4"><div class="textwidget"><a href="/c/quote"><img src="/wp-content/themes/bs3/assets/img/footer_wi@2x.jpg" width="280"></a></div></div>
-		<div class="col-sm-4"><div class="textwidget"><a href="http://fb.com/pages/Asphalt-Seal-Repair/341749302525789"><img src="/wp-content/themes/bs3/assets/img/footer_fb_connect@2x.jpg" width="280"></a></div></div>
-		<div class="col-sm-4"><div class="textwidget"><img src="/wp-content/themes/bs3/assets/img/footer_eco@2x.jpg" width="280"></div></div>
-	</div>';
+	echo '</div>';
 }
+}
+
 
 
 /*
