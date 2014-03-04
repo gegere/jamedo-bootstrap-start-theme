@@ -189,28 +189,6 @@ Stylesheets
 ==========================================================
 */
 
-<<<<<<< HEAD
-function jbst_bootstrap_css() {
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/library/assets/css/bootstrap.min.css', array(), '20130727', 'all' );
-    wp_enqueue_style( 'bootstrap' );
-}
-
-function jbst_bootstrap_responsive_css() {
-
-	$menu_depth = get_theme_mod( 'menu_depth', 1);
-	if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
-	wp_enqueue_style( 'dropdown-submenu' );	
-}
-
-
-function jbst_prettify_css() {
-	wp_register_style( 'jbst-prettify', get_template_directory_uri() . '/library/assets/js/google-code-prettify/prettify.css', array(), '20120822', 'all' );
-    wp_enqueue_style( 'jbst-prettify' );
-}
-=======
-
->>>>>>> 4bbed406171f2bdf6e1be7269e307f1eb837c023
-
 
 /*
 ==========================================================
