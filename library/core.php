@@ -2,6 +2,12 @@
 global $optionscheck;
 $optionscheck = 0;
 
+/* set fonts */
+
+global $webfonts,$fontchoices; 
+$webfonts = apply_filters('jbst_set_webfonts',array('Helvetica Neue' => 'Helvetica Neue', 'Arial' => 'Arial', 'Lucida Bright' => 'Lucida Bright','Georgia' => 'Georgia', 'Times New Roman' => 'Times New Roman'));
+$fontchoices = array_merge($webfonts,array(/* Google Fonts */ 'Abel' => 'Abel', 'Amaranth' => 'Amaranth', 'Amatic+SC' => 'Amatic SC', 'Anonymous+Pro' => 'Anonymous Pro', 'Anton' => 'Anton', 'Architects+Daughter' => 'Architects Daughter', 'Arimo' => 'Arimo', 'Arvo' => 'Arvo', 'Asap' => 'Asap', 'Bitter' => 'Bitter', 'Black+Ops+One' => 'Black Ops One', 'Bree+Serif' => 'Bree Serif', 'Cabin' => 'Cabin', 'Cabin+Condensed' => 'Cabin Condensed', 'Calligraffitti' => 'Calligraffitti', 'Cantarell' => 'Cantarell', 'Changa+One' => 'Changa One', 'Cherry+Cream+Soda' => 'Cherry Cream Soda', 'Chewy' => 'Chewy', 'Chivo' => 'Chivo', 'Coming Soon' => 'Coming Soon', 'Copse' => 'Copse', 'Covered+By+Your+Grace' => 'Covered By Your Grace', 'Crafty+Girls' => 'Crafty Girls', 'Crimson+Text' => 'Crimson Text', 'Crushed' => 'Crushed', 'Cuprum' => 'Cuprum', 'Dancing+Script' => 'Dancing Script', 'Dosis' => 'Dosis', 'Droid+Sans' => 'Droid Sans', 'Droid+Sans+Mono' => 'Droid Sans Mono', 'Droid+Serif' => 'Droid Serif', 'Exo' => 'Exo', 'Francois+One' => 'Francois One', 'Fredoka+One' => 'Fredoka One', 'Gloria+Hallelujah' => 'Gloria Hallelujah', 'Goudy+Bookletter+1911' => 'Goudy Bookletter 1911', 'Happy+Monkey' => 'Happy Monkey', 'Homemade+Apple' => 'Homemade Apple', 'Istok+Web' => 'Istok Web', 'Josefin+Sans' => 'Josephin Sans', 'Josefin+Slab' => 'Josefin Slab', 'Judson' => 'Judson', 'Just+Me+Again+Down+Here' => 'Just Me Again Down Here', 'Kreon' => 'Kreon', 'Lora' => 'Lora', 'Lato' => 'Lato', 'Limelight' => 'Limelight', 'Lobster' => 'Lobster', 'Luckiest+Guy' => 'Luckiest Guy', 'Marvel' => 'Marvel', 'Maven+Pro' => 'Maven Pro', 'Merriweather' => 'Merriweather', 'Metamorphous' => 'Metamorphous', 'Molengo' => 'Molengo', 'Muli' => 'Muli', 'News+Cycle' => 'News Cycle', 'Nobile' => 'Nobile', 'Nothing+You+Could+Do' => 'Nothing You Could Do', 'Nunito' => 'Nunito', 'Open+Sans' => 'Open Sans', 'Open+Sans' => 'Open Sans', 'Oswald' => 'Oswald', 'Pacifico' => 'Pacifico', 'Paytone+One' => 'Paytone One', 'Permanent+Marker' => 'Permanent Marker', 'Philosopher' => 'Philosopher', 'Play' => 'Play', 'Pontano+Sans' => 'Pontano Sans', 'PT+Sans' => 'PT Sans', 'PT+Sans+Narrow' => 'PT Sans Narrow', 'PT+Sans+Caption' => 'PT Sans Caption', 'PT+Serif' => 'PT Serif', 'Questrial' => 'Questrial', 'Quicksand' => 'Quicksand', 'Raleway' => 'Raleway', 'Reenie+Beanie' => 'Reenie Beanie', 'Righteous' => 'Righteous', 'Rock+Salt' => 'Rock Salt', 'Rokkitt' => 'Rokkitt', 'Shadows+Into+Light' => 'Shadows Into Light', 'Signika' => 'Signika', 'Source+Sans+Pro' => 'Source Sans Pro', 'Squada+One' => 'Squada One', 'Sunshiney' => 'Sunshiney', 'Syncopate' => 'Syncopate', 'Tangerine' => 'Tangerine', 'The+Girl+Next+Door' => 'The Girl Next Door', 'Ubuntu' => 'Ubuntu', 'Ubuntu+Condensed' => 'Ubuntu Condensed', 'Unkempt' => 'Unkempt', 'Vollkorn' => 'Vollkorn', 'Voltaire' => 'Voltaire', 'Walter+Turncoat' => 'Walter Turncoat', 'Yanone+Kaffeesatz' => 'Yanone Kaffeesatz'));
+
 /*
 ==========================================================
 SET DEFAULT SETTINGS
@@ -12,10 +18,23 @@ function jbst_default_settings()
 	do_action('jbst_child_settings');
 	
 	/* navbar */
+	if(!defined('navbar_style'))define('navbar_style','default');
 	
 	if(!defined('navbar_background_color'))define('navbar_background_color',false);
+	if(!defined('navbar_border_color'))define('navbar_border_color',false);
+	if(!defined('navbar_link_color'))define('navbar_link_color',false);
+	if(!defined('navbar_linkhover_color'))define('navbar_linkhover_color',false);
+	if(!defined('navbar_linkhoverbackground_color'))define('navbar_linkhoverbackground_color',false);
+	if(!defined('navbar_activelink_color'))define('navbar_activelink_color',false);
+	if(!defined('navbar_activebackground_color'))define('navbar_activebackground_color',false);
+	
 	if(!defined('navbar_search'))define('navbar_search',1);
 	if(!defined('navbar_account'))define('navbar_account',1);
+	if(!defined('navbar_cart'))define('navbar_cart',1);
+	
+	/* logo text */
+	if(!defined('logo_link_color'))define('logo_link_color',false);
+	if(!defined('logo_linkhover_color'))define('logo_linkhover_color',false);
 	
 	/* logo */
 	if(!defined('logo_image_position'))define('logo_image_position','in-nav');
@@ -25,19 +44,40 @@ function jbst_default_settings()
 	
 	/* footer */
 	if(!defined('footer_width'))define('footer_width','cont-width');
-	if(!defined('footer_bg_color'))define('footer_bg_color','#371B2C');
-	if(!defined('footer_text_color'))define('footer_text_color','#D1D6E7');
-	if(!defined('footer_link_color'))define('footer_link_color','#D1D6E7');
+	if(!defined('footer_bg_color'))define('footer_bg_color',false);
+	if(!defined('footer_text_color'))define('footer_text_color',false);
+	if(!defined('footer_link_color'))define('footer_link_color',false);
+	if(!defined('footer_linkhover_color'))define('footer_linkhover_color',false);
+	if(!defined('footer_widgets_number'))define('footer_widgets_number',4);
+	
+	
+	/* disable LESS / Customizer / Options  */
+	if(!defined('jbst_less'))define('jbst_less',1);
+	if(!defined('jbst_customizer'))define('jbst_customizer',1);
+	if(!defined('jbst_options'))define('jbst_options',1);
+	
+	/* site color */
+	if(!defined('link_color'))define('link_color',false);
+	
+	/* grid */
+	if(!defined('container_width'))define('container_width','1200');
+	if(!defined('gridfloatbreakpoint'))define('gridfloatbreakpoint','768');
+	if(!defined('default_grid'))define('default_grid','md');
+	
+	/* fonts */
+	if(!defined('heading_font_family'))define('heading_font_family','Helvetica Neue'); 
+	
+	/*
+	==========================================================
+	SET THE DEFAULT GRID
+	==========================================================
+	*/
+
+	define('JBST_GRIDPREFIX','col-'.get_theme_mod( 'default_grid', default_grid).'-');
 }	
 
 
-/*
-==========================================================
-SET THE DEFAULT GRID
-==========================================================
-*/
 
-define('JBST_GRIDPREFIX','col-'.get_theme_mod( 'default_grid', 'md').'-');
 																							
 /*
 ==========================================================
@@ -149,25 +189,7 @@ Stylesheets
 ==========================================================
 */
 
-function jbst_bootstrap_css() {
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/library/assets/css/bootstrap.min.css', array(), '20130727', 'all' );
-    
 
-wp_enqueue_style( 'bootstrap' );
-}
-
-function jbst_bootstrap_responsive_css() {
-
-	$menu_depth = get_theme_mod( 'menu_depth', 1);
-	if($menu_depth>0) {wp_register_style( 'dropdown-submenu', get_template_directory_uri() . '/library/assets/css/dropdown-submenu.css', array(), '20131013', 'all' );}
-	wp_enqueue_style( 'dropdown-submenu' );	
-}
-
-
-function jbst_prettify_css() {
-	wp_register_style( 'jbst-prettify', get_template_directory_uri() . '/library/assets/js/google-code-prettify/prettify.css', array(), '20120822', 'all' );
-    wp_enqueue_style( 'jbst-prettify' );
-}
 
 
 /*
@@ -185,21 +207,9 @@ function jbst_bootstrap_js() {
 	wp_enqueue_script( 'bootstrap' );
 }
 
-function jbst_custom_js() {	
-	wp_register_script('custom_js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery','bootstrap' ), '20132210', true );
-	wp_enqueue_script( 'custom_js' );
-}
-
-
-
 function jbst_js() {	
 	wp_register_script('jbst_js', get_template_directory_uri() . '/library/assets/js/jbst.js', array( 'jquery' ), '20120703', true );
 	wp_enqueue_script( 'jbst_js' );
-}
-
-function jbst_prettify_js() {
-	wp_register_script( 'prettify', get_template_directory_uri() . '/library/assets/js/google-code-prettify/prettify.js', array( 'jquery' ), '20120703', true );
-	wp_enqueue_script( 'prettify' );
 }
 
 function jbst_editarea_js() {
@@ -214,14 +224,6 @@ function jbst_comments_js() {
 	}
 }
 
-function jbst_keyboard_nav_js() {
-global $post;
-	if ( is_singular() && wp_attachment_is_image( $post->ID ) ) {
-		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/library/assets/js/keyboard-image-navigation.js', array( 'jquery' ), '20120703' );
-	}
-}
-
-
 /*
 ==========================================================
 GOOGLE FONTS
@@ -230,11 +232,11 @@ GOOGLE FONTS
 add_action('jbst_head', 'jbst_add_google_fonts', 5);
 function jbst_add_google_fonts() {
 	$googlefonts = false;
-	$webfonts = array('Helvetica Neue','Georgia','Lucida Bright','Arial','Times New Roman');
+	global $webfonts;
 	
 	$logofont = get_theme_mod('logo_font_family', 'Helvetica Neue');
 	$bodyfont = get_theme_mod('body_font_family', 'Helvetica Neue');
-	$headingfont = get_theme_mod('heading_font_family', 'Helvetica Neue');
+	$headingfont = get_theme_mod('heading_font_family', heading_font_family);
 	$navbarfont = get_theme_mod('navbar_font_family', 'Helvetica Neue');
 	
 	if (!in_array($logofont, $webfonts)) {$googlefonts .= $logofont.'|';}
@@ -256,27 +258,10 @@ add_action( 'jbst_add_to_custom_style', 'jbst_typography', 5);
 function jbst_typography() {
 	echo 'a.navbar-brand {font-family:"'.str_replace("+", " ", get_theme_mod('logo_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
 	echo 'body {font-family:"'.str_replace("+", " ", get_theme_mod('body_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
-	echo 'h1,h2,h3 {font-family:"'.str_replace("+", " ", get_theme_mod('heading_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
+	echo 'h1,h2,h3 {font-family:"'.str_replace("+", " ", get_theme_mod('heading_font_family', heading_font_family)).'","Helvetica Neue",sans-serif;}';
 	echo '.navbar-inner {font-family:"'.str_replace("+", " ", get_theme_mod('navbar_font_family', 'Helvetica Neue')).'","Helvetica Neue",sans-serif;}';
 
 }
-
-/*
-==========================================================
-CUSTOM LOGO
-==========================================================
-*/
-
-function jbst_logo() { 
-	$custom_logo = get_theme_mod( 'logo_image', logo_image);
-	if ($custom_logo) 
-	{
-	return "<a id='logo-link-container' href='".home_url()."' title='".esc_attr( get_bloginfo( 'name', 'display' ) )."'><img class='site-logo' src='$custom_logo' alt='".esc_attr( get_bloginfo( 'name', 'display' ) )."' /></a>"; 
-	} 
-	return '<a class="navbar-brand" href="'. home_url() . '">' . get_bloginfo('name') . '</a>';
-}
-
-
 
 
 /*
@@ -421,7 +406,7 @@ register_nav_menus(                      // wp3+ menus
 	)
 );
 
-function jbst_main_nav($menu_class='') {
+function jbst_main_nav() {
 	// display the wp3 menu if available
  //   wp_nav_menu( 
  //   	array( 
@@ -441,15 +426,14 @@ function jbst_main_nav($menu_class='') {
         'depth'             => get_theme_mod( 'menu_depth', 1)+1,
         'container'         => 'false',
         'container_class'   => 'collapse navbar-collapse navbar-jbst-collapse',
-        'menu_class'        => apply_filters('navbar_menu_class','nav navbar-nav'),
+        'menu_class'        => apply_filters('jbst_navbar_menu_class','nav navbar-nav'),
         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
         'walker'            => new wp_bootstrap_navwalker())
     );
 
 
 do_action( 'jbst_after_main_nav' );
-}
-
+}	
 
 /**
  * Class Name: wp_bootstrap_navwalker
@@ -511,7 +495,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 
-			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+			$class_names = join( ' ', apply_filters( 'jbst_nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
 			if ( $args->has_children && $depth<(get_theme_mod( 'menu_depth', 1)))
 				//$class_names .= ' dropdown';
@@ -526,7 +510,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
-			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+			$id = apply_filters( 'jbst_nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 			$output .= $indent . '<li' . $id . $value . $class_names .'>';
@@ -561,7 +545,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 			}
 
-			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+			$atts = apply_filters( 'jbst_nav_menu_link_attributes', $atts, $item, $args );
 
 			$attributes = '';
 			foreach ( $atts as $attr => $value ) {
@@ -589,7 +573,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$item_output .= ((get_theme_mod( 'menu_depth', 1)>0) && $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
 			$item_output .= $args->after;
 
-			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+			$output .= apply_filters( 'jbst_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 	}
 
@@ -1045,4 +1029,4 @@ function jbst_showAdminMessages()
 	}	
 	}
 }	
-add_action('admin_notices', 'jbst_showAdminMessages');  
+add_action('admin_notices', 'jbst_showAdminMessages');

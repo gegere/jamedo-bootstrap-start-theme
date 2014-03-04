@@ -1,0 +1,12 @@
+.include-custom-font(@family: arial,@font-path, @path: @custom-font-dir, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('@{path}@{font-path}.eot');
+        src:url('@{path}@{font-path}.eot?#iefix') format('embedded-opentype'),
+            url('@{path}@{font-path}.woff') format('woff'),
+            url('@{path}@{font-path}.ttf') format('truetype'),
+            url('@{path}@{font-path}.svg#icon') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}

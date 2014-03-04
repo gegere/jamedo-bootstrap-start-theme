@@ -30,6 +30,18 @@ Don't edit wpless2css/bootstrap/variables.less but overwrite the variables in th
 Note: Edit and add LESS code with the editor, unless you understand what you're doing. Modifications with the editor are saved in the database and not over written or lost when you update your theme. Changing less/custom.less in your child theme will also be save.
 Cause CSS is valid LESS you could also add CSS code to the LESS editor.
 
+Use the built-in compiler to: 
+
+  - set any [Bootstrap](http://getbootstrap.com/customize/) variable or use Bootstrap's mixins:
+	-`@navbar-default-color: blue;`
+  - create a custom button: `.btn-custom {
+  .button-variant(white; red; blue);
+}`
+  - set any built-in LESS variable: for example `@footer_bg_color: black;` sets the background color of the footer to black
+  - use built-in mixins: - add a custom font: `.include-custom-font(@family: arial,@font-path, @path: @custom-font-dir, @weight: normal, @style: normal);`
+
+[Other notes and examples Customization and LESS](https://github.com/bassjobsen/jamedo-bootstrap-start-theme/issues/86#issuecomment-33525619)
+
 Security issues
 ---------------
 
@@ -64,7 +76,7 @@ Accessibility / a11y
 --------------------
 
 JBST is a11y ready by default. When building your site by changing the settings or creating a child theme a11y checks can be broken. Color settings should check for contrast. Also other installed plugins or settings can influence the accessibility of your site. JBST helps you to meet the a11y standard but you also have to check your site after changing it.
-Condsider to install [WP Accessibility](http://wordpress.org/plugins/wp-accessibility/) and check your color settings on [GrayBit](http://gray-bit.com/).
+Condsider to install [WP Accessibility](http://wordpress.org/plugins/wp-accessibility/) and check your color settings on [GrayBit](http://gray-bit.com/). Also see [Bootstrap a11y theme](https://github.com/bassjobsen/bootstrap-a11y-theme).
 
 Menu levels
 -----------
@@ -77,8 +89,11 @@ Use JBST to create child themes for WordPress build on Twitter's Bootstrap 3.
 We provide you a [Boilerplate JBST Child Theme](https://github.com/bassjobsen/Boilerplate-JBST-Child-Theme) and an example of a Webshop based on [Twitter Bootstrap Webshop Template with vertical menu](https://github.com/bassjobsen/twitter-bootstrap-webshop-template). 
 Download this [Demo Webshop E-commerce Template](https://github.com/bassjobsen/jbst-e-commerce-child-theme) or try the [Demo](http://webshop.w3masters.nl/).
 
-Add and edit wpless2css/wpless2css.less to add or modify your LESS/CSS code. Or use the LESS editor. 
-You have to use the save function of the LESS editor after changing wpless2css/wpless2css.less too. The save function generate new CSS from your LESS files.
+Edit less/custom.less to add or modify your LESS/CSS code. Or use the LESS editor. 
+You have to use the save function of the LESS editor after changing less/custom.less too. The save function generate new CSS from your LESS files.
+
+[Complete list of action hooks, filters and predefined settings](https://github.com/bassjobsen/Boilerplate-JBST-Child-Theme)
+
 
 Twitter's Bootstrap Shortcodes
 ------------------------------
@@ -117,6 +132,10 @@ Recommended and Supported Plugins
 * [Options Framework](http://wordpress.org/plugins/options-framework/) A framework for building theme options. 
 * [WP Retina 2x](http://wordpress.org/plugins/wp-retina-2x/) Make your website look beautiful and smooth on Retina (high-DPI) displays such as the MacBook Pro Retina and the iPad.
 * [WP Accessibility](http://wordpress.org/plugins/wp-accessibility/) WP Accessibility provides fixes for common accessibility issues in your WordPress site.
+* [WP Code Prettify](http://wordpress.org/extend/plugins/wp-code-prettify/) This plugin enable syntax highlighting of code snippets in your post using Google Code Prettify.
+* [JBST FitVids for WordPress](https://github.com/bassjobsen/JBST-FitVids-for-WordPress) This plugin makes videos responsive using the [FitVids jQuery plugin](https://github.com/davatron5000/FitVids.js) on WordPress. 
+
+NB only install plugins you really need! And [remove](http://codex.wordpress.org/WordPress_Housekeeping) the ones you don't use.
 
 Buy and Sell JBST Child themes
 ------------------------------
@@ -128,7 +147,7 @@ Designers, we could convert psd to JBST for you, so you can sell your designs to
 Knowledge base
 --------------
 Find answers to faq and other tips and tricks in our [Knowledge base](http://jbst.eu/knowledge-base/).
-You will find answers and tips for s.a. LightBox2 integration, using JBST with a Jumbotron.
+You will find answers and tips for s.a. LightBox2 integration and using JBST with a Jumbotron.
 
 JBST Expo
 ---------
@@ -155,6 +174,7 @@ Credits
 * [Less.js](http://www.lesscss.org/)
 * [less.php](http://lessphp.gpeasy.com/)
 * [Options Framework](http://wptheming.com/)
+* [Bootstrap a11y theme](https://github.com/bassjobsen/bootstrap-a11y-theme), Make web accessibility (a11y) easier for Bootstrap Developers
 
 Example
 -------

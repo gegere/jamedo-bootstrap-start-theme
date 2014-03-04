@@ -10,13 +10,19 @@ function jbst_layout(){
 	global $jbst_layout;
 	global $jbstecommerce;
 	global $post;
-	
+	if($jbst_layout)return;
+
 	/* get the page layout */
-	$custom_page_layout= 'default';
-	if(is_singular(array( 'page', 'post' ))) {$custom_page_layout = get_post_meta( $post->ID, '_cmb_page_layout', true );}
-	if (($custom_page_layout == 'left-sidebar') || ($custom_page_layout == 'right-sidebar') || ($custom_page_layout == 'full-width') || ($custom_page_layout == 'three-column')) {
-		$jbst_layout = get_post_meta( $post->ID, '_cmb_page_layout', true );
-	} else {
+	$jbst_layout = 'right-sidebar';
+	if (
+			is_singular(array( 'page', 'post' )) 
+	   ) {
+		   if(!$jbst_layout = get_post_meta( $post->ID, '_cmb_page_layout', true ))
+		   {
+			   $jbst_layout = of_get_option('default_page_layout', 'right-sidebar');
+	       }	   
+		 }
+	else {
 		if (is_page() || is_home()) {$jbst_layout = of_get_option('default_page_layout', 'right-sidebar');}
 		elseif (is_search()) {$jbst_layout = of_get_option('default_search_layout', 'right-sidebar');}
 		elseif (is_archive()) {$jbst_layout = of_get_option('default_archive_layout', 'right-sidebar');}
@@ -26,12 +32,14 @@ function jbst_layout(){
 			if (is_product()) {$jbst_layout = of_get_option('default_product_layout', 'right-sidebar');}
 		}
 	}
-
 }
-
+function jbst_posttype_set_classes() {
+	if(wp_attachment_is_image()) return 'image-attachment';
+	return 'site-content';
+}
 // Define the WooCommerce content wrappers
 function jbst_open_content_wrappers() {?>
-			<div id="content" role="main" class="site-content <?php do_action('jbstmaingridclass'); ?>">
+			<div id="content" role="main" class="<?php echo apply_filters('jbst_posttype_classes',jbst_posttype_set_classes()) ?> <?php echo apply_filters('jbstmaingridclass',jbst_content_span()) ?>">
 				
 	<?php
 }
@@ -42,7 +50,6 @@ function jbst_close_content_wrappers() {?>
 	<?php
 }
 
-add_action('jbstmaingridclass','jbst_content_span',1);
 
 // Content Span
 function jbst_content_span() {
@@ -55,7 +62,7 @@ function jbst_content_span() {
 		$contentcolumnsm = get_theme_mod('content_span_sm',9);
 		$contentcolumnmd = get_theme_mod('content_span_md',9);
 		$contentcolumnlg = get_theme_mod('content_span_lg',9);
-		$default_grid = get_theme_mod( 'default_grid', 'md');
+		$default_grid = get_theme_mod( 'default_grid',  default_grid);
 		if($default_grid=='xs') $grids = array('xs','sm','md','lg');
 		elseif($default_grid=='sm') $grids = array('sm','md','lg');
 		elseif($default_grid=='md') $grids = array('md','lg');
@@ -94,7 +101,7 @@ function jbst_left_sidebar() {
 		$sidebarcolumnsm = get_theme_mod('left_sidebar_sm',3);
 		$sidebarcolumnmd = get_theme_mod('left_sidebar_md',3);
 		$sidebarcolumnlg = get_theme_mod('left_sidebar_lg',3);
-		$default_grid = get_theme_mod( 'default_grid', 'md');
+		$default_grid = get_theme_mod( 'default_grid',  default_grid);
 		if($default_grid=='xs') $grids = array('xs','sm','md','lg');
 		elseif($default_grid=='sm') $grids = array('sm','md','lg');
 		elseif($default_grid=='md') $grids = array('md','lg');
@@ -137,7 +144,7 @@ function jbst_right_sidebar() {
 		$sidebarcolumnsm = get_theme_mod('right_sidebar_sm',3);
 		$sidebarcolumnmd = get_theme_mod('right_sidebar_md',3);
 		$sidebarcolumnlg = get_theme_mod('right_sidebar_lg',3);
-		$default_grid = get_theme_mod( 'default_grid', 'md');
+		$default_grid = get_theme_mod( 'default_grid',  default_grid);
 		if($default_grid=='xs') $grids = array('xs','sm','md','lg');
 		elseif($default_grid=='sm') $grids = array('sm','md','lg');
 		elseif($default_grid=='md') $grids = array('md','lg');

@@ -27,7 +27,8 @@ class Example_Customize_Textarea_Control extends WP_Customize_Control {
 }
 /* FONT OPTIONS */
 global $fontchoices;
-/* Websafe Fonts */ $fontchoices = array( 'Helvetica Neue' => 'Helvetica Neue', 'Arial' => 'Arial', 'Lucida Bright' => 'Lucida Bright', 'Georgia' => 'Georgia', 'Times New Roman' => 'Times New Roman', /* Google Fonts */ 'Abel' => 'Abel', 'Amaranth' => 'Amaranth', 'Amatic+SC' => 'Amatic SC', 'Anonymous+Pro' => 'Anonymous Pro', 'Anton' => 'Anton', 'Architects+Daughter' => 'Architects Daughter', 'Arimo' => 'Arimo', 'Arvo' => 'Arvo', 'Asap' => 'Asap', 'Bitter' => 'Bitter', 'Black+Ops+One' => 'Black Ops One', 'Bree+Serif' => 'Bree Serif', 'Cabin' => 'Cabin', 'Cabin+Condensed' => 'Cabin Condensed', 'Calligraffitti' => 'Calligraffitti', 'Cantarell' => 'Cantarell', 'Changa+One' => 'Changa One', 'Cherry+Cream+Soda' => 'Cherry Cream Soda', 'Chewy' => 'Chewy', 'Chivo' => 'Chivo', 'Coming Soon' => 'Coming Soon', 'Copse' => 'Copse', 'Covered+By+Your+Grace' => 'Covered By Your Grace', 'Crafty+Girls' => 'Crafty Girls', 'Crimson+Text' => 'Crimson Text', 'Crushed' => 'Crushed', 'Cuprum' => 'Cuprum', 'Dancing+Script' => 'Dancing Script', 'Dosis' => 'Dosis', 'Droid+Sans' => 'Droid Sans', 'Droid+Sans+Mono' => 'Droid Sans Mono', 'Droid+Serif' => 'Droid Serif', 'Exo' => 'Exo', 'Francois+One' => 'Francois One', 'Fredoka+One' => 'Fredoka One', 'Gloria+Hallelujah' => 'Gloria Hallelujah', 'Goudy+Bookletter+1911' => 'Goudy Bookletter 1911', 'Happy+Monkey' => 'Happy Monkey', 'Homemade+Apple' => 'Homemade Apple', 'Istok+Web' => 'Istok Web', 'Josefin+Sans' => 'Josephin Sans', 'Josefin+Slab' => 'Josefin Slab', 'Judson' => 'Judson', 'Just+Me+Again+Down+Here' => 'Just Me Again Down Here', 'Kreon' => 'Kreon', 'Lora' => 'Lora', 'Lato' => 'Lato', 'Limelight' => 'Limelight', 'Lobster' => 'Lobster', 'Luckiest+Guy' => 'Luckiest Guy', 'Marvel' => 'Marvel', 'Maven+Pro' => 'Maven Pro', 'Merriweather' => 'Merriweather', 'Metamorphous' => 'Metamorphous', 'Molengo' => 'Molengo', 'Muli' => 'Muli', 'News+Cycle' => 'News Cycle', 'Nobile' => 'Nobile', 'Nothing+You+Could+Do' => 'Nothing You Could Do', 'Nunito' => 'Nunito', 'Open+Sans' => 'Open Sans', 'Open+Sans' => 'Open Sans', 'Oswald' => 'Oswald', 'Pacifico' => 'Pacifico', 'Paytone+One' => 'Paytone One', 'Permanent+Marker' => 'Permanent Marker', 'Philosopher' => 'Philosopher', 'Play' => 'Play', 'Pontano+Sans' => 'Pontano Sans', 'PT+Sans' => 'PT Sans', 'PT+Sans+Narrow' => 'PT Sans Narrow', 'PT+Sans+Caption' => 'PT Sans Caption', 'PT+Serif' => 'PT Serif', 'Questrial' => 'Questrial', 'Quicksand' => 'Quicksand', 'Raleway' => 'Raleway', 'Reenie+Beanie' => 'Reenie Beanie', 'Righteous' => 'Righteous', 'Rock+Salt' => 'Rock Salt', 'Rokkitt' => 'Rokkitt', 'Shadows+Into+Light' => 'Shadows Into Light', 'Signika' => 'Signika', 'Source+Sans+Pro' => 'Source Sans Pro', 'Squada+One' => 'Squada One', 'Sunshiney' => 'Sunshiney', 'Syncopate' => 'Syncopate', 'Tangerine' => 'Tangerine', 'The+Girl+Next+Door' => 'The Girl Next Door', 'Ubuntu' => 'Ubuntu', 'Ubuntu+Condensed' => 'Ubuntu Condensed', 'Unkempt' => 'Unkempt', 'Vollkorn' => 'Vollkorn', 'Voltaire' => 'Voltaire', 'Walter+Turncoat' => 'Walter Turncoat', 'Yanone+Kaffeesatz' => 'Yanone Kaffeesatz', );
+/* Websafe Fonts */ 
+
 
 /* FONT SIZES */
 global $fontsizes;
@@ -43,7 +44,9 @@ $fontsizes = array(
 global $lineheights;
 $lineheights = array('1.4' => '1.4 ' .__('default','jamedo-bootstrap-start-theme') , '1.5' => '1.5','1.6' => '1.6','1.7' => '1.7','1.8' => '1.8','1.9' => '1.9','2' => '2',);
 
-	do_action('jbst_add_to_customizer');
+
+
+do_action('jbst_add_to_customizer');
 
 } //END OF jbst_customizer
 
@@ -57,13 +60,23 @@ TO REGISTER YOUR OWN, SIMPLY COPY ANY OF THE SECTIONS BELOW INTO
 YOUR OWN THEME OR PLUGIN AND EDIT FOR YOUR NEEDS. 
 ==================================================================
 */
+$options=array('grid','mainnavigation','container','gridfloatbreakpoint','logo','navbar','background','typography','buttons','blog','discussion','footer');
+if(is_array($options=apply_filters('jbst_customizer_options',$options)))
+{
+	foreach ($options as $option)
+	{
+		add_action('jbst_add_to_customizer','jbst_'.$option.'_customizer_options');
+	}	
+}
+
 
 /*
 ==================================================================
 Grid
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_grid_customizer_options');
+
+
 function jbst_grid_customizer_options($wp_customize) {
 	global $wp_customize;
 
@@ -74,7 +87,7 @@ function jbst_grid_customizer_options($wp_customize) {
 
 	/* Navbar Width */
 	$wp_customize->add_setting( 'default_grid', array(
-	'default'        => 'sm',
+	'default'        => default_grid,
 	'transport'   => 'refresh'
 	) );
 		
@@ -91,8 +104,12 @@ function jbst_grid_customizer_options($wp_customize) {
 			),
 	) );
 }
-add_action('jbst_add_to_customizer','jbst_customizer_mainnavigation');
-function jbst_customizer_mainnavigation($wp_customize) {
+/*
+==================================================================
+Main Navigation
+==================================================================
+*/
+function jbst_mainnavigation_customizer_options($wp_customize) {
 global $wp_customize;	
 $wp_customize->add_section( 'nav', array(
      'title'          => __( 'Navigation','jamedo-bootstrap-start-theme'),
@@ -131,10 +148,10 @@ $wp_customize->add_section( 'nav', array(
 }
 /*
 ==================================================================
-Navbar
+Grid Container width
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_container_customizer_options');
+
 function jbst_container_customizer_options($wp_customize) {
 	global $wp_customize;
 
@@ -145,15 +162,16 @@ function jbst_container_customizer_options($wp_customize) {
 
 	/* Navbar Width */
 	$wp_customize->add_setting( 'container_width', array(
-	'default'        => 1200,
+	'default'        => container_width,
 	) );
 		
 	$wp_customize->add_control( 'container_width', array(
-		'label'   => __('Max Container Width','jamedo-bootstrap-start-theme') .':',
+		'label'   => __('Max Grid Container Width','jamedo-bootstrap-start-theme') .':',
 		'section' => 'container_settings',
 		'type'    => 'select',
 		'priority'        => 10,
 		'choices'    => array(
+			'full' => 'full width (fluid)',
 			1200 => '1200px',
 			980 => '980px',
 			),
@@ -165,7 +183,6 @@ function jbst_container_customizer_options($wp_customize) {
 Grid Float Breakpoint
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_gridfloatbreakpoint_customizer_options');
 function jbst_gridfloatbreakpoint_customizer_options($wp_customize) {
 	global $wp_customize;
 
@@ -176,7 +193,7 @@ function jbst_gridfloatbreakpoint_customizer_options($wp_customize) {
 
 	/* Navbar Width */
 	$wp_customize->add_setting( 'gridfloatbreakpoint', array(
-	'default'        => '768',
+	'default'        => gridfloatbreakpoint,
 	) );
 		
 	$wp_customize->add_control( 'gridfloatbreakpoint', array(
@@ -199,7 +216,7 @@ function jbst_gridfloatbreakpoint_customizer_options($wp_customize) {
 Logo
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_logo_customizer_options');
+
 function jbst_logo_customizer_options($wp_customize) {
 	global $wp_customize;
 	global $fontchoices;
@@ -251,7 +268,7 @@ function jbst_logo_customizer_options($wp_customize) {
 	
 	/* Logo Link  Color */
 	$wp_customize->add_setting( 'logo_link_color', array(
-		'default'        => '',
+		'default'        => logo_link_color,
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logo_link_color', array(
@@ -263,7 +280,7 @@ function jbst_logo_customizer_options($wp_customize) {
 	
 	/* Logo Link hover Color */
 	$wp_customize->add_setting( 'logo_linkhover_color', array(
-		'default'        => '',
+		'default'        => logo_linkhover_color,
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logo_linkhover_color', array(
@@ -279,7 +296,7 @@ function jbst_logo_customizer_options($wp_customize) {
 Navbar
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_navbar_customizer_options');
+
 function jbst_navbar_customizer_options($wp_customize) {
 	global $wp_customize;
 	global $fontchoices;
@@ -292,7 +309,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 
 	/* Navbar Width */
 	$wp_customize->add_setting( 'navbar_style', array(
-	''        => __( 'Default', 'jamedo-bootstrap-start-theme'),
+	'default'        => navbar_style,
 	) );
 		
 	$wp_customize->add_control( 'navbar_style', array(
@@ -301,7 +318,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 		'type'    => 'select',
 		'priority'        => 10,
 		'choices'    => array(
-			''=> 'Default',
+			'default'=> __( 'Default', 'jamedo-bootstrap-start-theme'),
 			'navbar-static-top' => 'Static top navbar',
 			'navbar-fixed-top' => 'Fixed to top',
 			'navbar-fixed-bottom' => 'Fixed to bottom',
@@ -325,7 +342,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 	
 	/* Navbar Border Color */
 	$wp_customize->add_setting( 'navbar_border_color', array(
-		'default'        => '',
+		'default'        => navbar_border_color,
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navbar_border_color', array(
@@ -337,7 +354,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 	
 	/* Navbar Link Color */
 	$wp_customize->add_setting( 'navbar_link_color', array(
-		'default'        => '',
+		'default'        => navbar_link_color,
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navbar_link_color', array(
@@ -349,7 +366,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 	
 	/* Navbar Link hover Color */
 	$wp_customize->add_setting( 'navbar_linkhover_color', array(
-		'default'        => '',
+		'default'        => navbar_linkhover_color,
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navbar_linkhover_color', array(
@@ -361,7 +378,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 	
 	/* Navbar Active item Color */
 	$wp_customize->add_setting( 'navbar_activelink_color', array(
-		'default'        => '',
+		'default'        => navbar_activelink_color,
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navbar_activelink_color', array(
@@ -373,7 +390,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 	
 		/* Navbar Active item Background Color */
 	$wp_customize->add_setting( 'navbar_activebackground_color', array(
-		'default'        => '',
+		'default'        => navbar_activebackground_color,
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navbar_activebackground_color', array(
@@ -470,14 +487,14 @@ function jbst_navbar_customizer_options($wp_customize) {
 	if ($jbstecommerce == true) {
 		/* Navbar Cart */
 		$wp_customize->add_setting( 'navbar_cart', array(
-		'default'        => 1,
+		'default'        => navbar_cart,
 		) );
 			
 		$wp_customize->add_control( 'navbar_cart', array(
 			'label'   => 'Show shopping cart in navbar?',
 			'section' => 'navbar_settings',
 			'type'    => 'checkbox',
-			'default'        => 1,
+			'default'        => navbar_cart,
 			'priority'        => 70,
 		) );
 		/* Shop Nav Button */
@@ -509,7 +526,7 @@ function jbst_navbar_customizer_options($wp_customize) {
 BACKGROUND
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_background_customizer_options');
+
 function jbst_background_customizer_options($wp_customize) {
 	global $wp_customize;
 	$wp_customize->add_section( 'site_background_settings', array(
@@ -595,7 +612,7 @@ function jbst_background_customizer_options($wp_customize) {
 TYPOGRAPHY
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_typography_customizer_options');
+
 function jbst_typography_customizer_options($wp_customize) {
 	global $wp_customize;
 	global $fontchoices;
@@ -610,7 +627,7 @@ function jbst_typography_customizer_options($wp_customize) {
 
 	/* Heading Font Family */
 	$wp_customize->add_setting( 'heading_font_family', array(
-		'default'        => 'Helvetica Neue',
+		'default'        => heading_font_family,
 	) );
 	
 	$wp_customize->add_control( 'heading_font_family', array(
@@ -666,7 +683,7 @@ function jbst_typography_customizer_options($wp_customize) {
 SITE COLORS
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_colors_customizer_options');
+
 function jbst_colors_customizer_options($wp_customize) {
 	global $wp_customize;
 	$wp_customize->add_section( 'color_settings', array(
@@ -725,7 +742,7 @@ function jbst_colors_customizer_options($wp_customize) {
 	
 	/* Link Color */
 	$wp_customize->add_setting( 'link_color', array(
-		'default'        => '',
+		'default'        => link_color,
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
@@ -777,7 +794,7 @@ function jbst_colors_customizer_options($wp_customize) {
 BUTTONS
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_buttons_customizer_options');
+
 function jbst_buttons_customizer_options($wp_customize) {
 	global $wp_customize;
 	$wp_customize->add_section( 'button_settings', array(
@@ -812,7 +829,7 @@ function jbst_buttons_customizer_options($wp_customize) {
 BLOG SETTINGS
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_blog_customizer_options');
+
 function jbst_blog_customizer_options($wp_customize) {
 	global $wp_customize;
 	$wp_customize->add_section( 'blog_settings', array(
@@ -922,7 +939,7 @@ function jbst_blog_customizer_options($wp_customize) {
 DISCUSSION SETTINGS
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_discussion_customizer_options');
+
 function jbst_discussion_customizer_options($wp_customize) {
 	global $wp_customize;
 	$wp_customize->add_section( 'discussion_settings', array(
@@ -951,7 +968,7 @@ function jbst_discussion_customizer_options($wp_customize) {
 FOOTER
 ==================================================================
 */
-add_action('jbst_add_to_customizer','jbst_footer_customizer_options');
+
 function jbst_footer_customizer_options($wp_customize) {
 	global $wp_customize;
 	/* Add footer section and color styles to customizer */
@@ -978,7 +995,7 @@ function jbst_footer_customizer_options($wp_customize) {
 	
 	/* Footer Widgets */
 	$wp_customize->add_setting( 'footer_widgets_number', array(
-		'default'        => 4,
+		'default'        => footer_widgets_number,
 	) );	
 	
 	$wp_customize->add_control( 'footer_widgets_number', array(
@@ -1012,7 +1029,7 @@ function jbst_footer_customizer_options($wp_customize) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
-		'label'   => 'Footer Background Color (full width only)',
+		'label'   => 'Footer Background Color',
 		'section' => 'footer_settings',
 		'settings'   => 'footer_bg_color',
 		'priority'       => 15,
@@ -1142,14 +1159,4 @@ function jbst_wpec_customizer_options($wp_customize) {
 	) );
 }// END WP e-Commerce SETTINGS	
 }
-/*
-==================================================================
-DEMO
-==================================================================
-*/
-add_action('jbst_add_to_customizer','jbst_demo_customizer_options');
-function jbst_demo_customizer_options($wp_customize) {
-	global $wp_customize;
-	global $fontchoices;
-	global $jbstecommerce;
-}// END DEMO SETTINGS
+
